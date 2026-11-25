@@ -41,7 +41,7 @@ fits even though the songs are Cantonese and the card lettering is English.
 | 7 | 刷牙歌 | 1:51 | 日常程序、口部詞彙、自理 | 嘉芙姐姐 | https://youtu.be/jJf85eUnyzA |
 | 8 | 快樂口肌歌 | 1:54 | 口肌運動（唇、舌、面頰） | MOSTE | https://youtu.be/Y8kPVYrFXvo |
 | 9 | 一閃一閃小星星 | 2:41 | 音高、旋律、填充接唱 | 叻叻果叮 | https://youtu.be/hNFdtxacNek |
-| 10 | 排排坐 | 3:10 | 輪流、分享、家庭稱謂 | 叻叻果叮 | https://youtu.be/VKZgrLPnEcE |
+| 10 | 排排坐 | 3:10 | 輪流、分享、家庭稱謂 | 叻叻果叮 | https://youtu.be/VKZrgLPnEcE |
 | 11 | 祝你生日快樂 | 1:39 | 社交、名字、場合 | 奇音樂奇世界 | https://youtu.be/xsAgYuDaks0 |
 | 12 | 再見歌 | 0:59 | 社交技巧：講再見 | 樂在課中 | https://youtu.be/_p5AAnpJh6Y |
 

@@ -87,6 +87,20 @@ Send a YouTube link — a playlist, a single video, or a card you've seen. I'll 
 `playlists/<name>/reference.md` with the tracks pulled out, in order, each with
 its link, and notes on anything swapped or missing.
 
+## Browsing it as a website
+
+`docs/` is a generated static site: the ranked shelf, one page per playlist with
+clickable links and covers, plus the ranking and this readme. Rebuild after
+editing any markdown:
+
+```bash
+python3 .opencode/site/build.py
+```
+
+To publish on GitHub Pages: push the repo, then **Settings → Pages → Deploy from
+a branch → `main` / `/docs`**. The site works from a subpath, so
+`https://<user>.github.io/<repo>/` is fine.
+
 ## Using a playlist
 
 1. Open its `reference.md` and listen through the links.
