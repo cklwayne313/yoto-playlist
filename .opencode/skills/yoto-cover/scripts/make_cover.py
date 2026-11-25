@@ -95,6 +95,27 @@ def fit_size(text, font_path, max_w, max_h, start=420):
     return 24
 
 
+def draw_motif(canvas, kind, accent, W, H, char_top, seed):
+    """A single quiet shape behind the character, so two cards in the same
+    series do not read as the same template."""
+    if kind in (None, "none"):
+        return
+    draw = ImageDraw.Draw(canvas)
+    if kind == "circle":
+        r = W * 0.63
+        cy = char_top + r * 0.72
+        draw.ellipse([W / 2 - r, cy - r, W / 2 + r, cy + r], fill=accent)
+    elif kind == "hill":
+        draw.ellipse([-W * 0.35, H * 0.68, W * 1.35, H * 1.40], fill=accent)
+    elif kind == "dots":
+        rnd = random.Random(seed)
+        for _ in range(26):
+            x = rnd.uniform(0, W)
+            y = rnd.uniform(H * 0.32, H * 0.95)
+            r = rnd.uniform(6, 16)
+            draw.ellipse([x - r, y - r, x + r, y + r], fill=accent)
+
+
 def render_hand_line(text, font_path, size, colour, seed, jitter=1.0):
     """One line of hand-lettered type: each glyph slightly rotated, scaled and
     dropped off the baseline, so it reads painted rather than typeset."""
@@ -148,11 +169,11 @@ def finish_hand(layer, seed, grain_amount=10, blur=7, offset=8, shadow_alpha=58)
 
 
 def draw_title(canvas, lines, font_path, blue, region_top, region_bottom, width,
-               jitter=1.0, seed_base=0):
+               jitter=1.0, seed_base=0, scale=1.0):
     region_h = region_bottom - region_top
     n = len(lines)
     max_w = width * 0.95
-    sizes = [fit_size(t, font_path, max_w, region_h * 0.62) for t in lines]
+    sizes = [max(24, int(fit_size(t, font_path, max_w, region_h * 0.62) * scale)) for t in lines]
 
     gap = int(region_h * 0.05)
     while True:
@@ -201,6 +222,9 @@ def main():
     p.add_argument("--no-grain", action="store_true")
     p.add_argument("--jitter", type=float, default=1.0, help="hand-lettered wobble, 0 disables")
     p.add_argument("--seed", type=int, default=7, help="change to re-roll the lettering")
+    p.add_argument("--motif", default="none", help="none, circle, hill or dots")
+    p.add_argument("--accent", default="#EFE9D6", help="colour of the background motif")
+    p.add_argument("--title-scale", type=float, default=1.0, help="shrink the title for a lighter look")
     p.add_argument("--fade-bottom", type=int, default=0, help="soften a hard cut at the bottom of the art, in px")
     p.add_argument("--anchor-bottom", action="store_true", help="sit the art on the card edge, so a cropped source has no visible cut")
     args = p.parse_args()
@@ -225,9 +249,10 @@ def main():
 
     font_path = ensure_font(args.font)
     top = H - cut.height + 15 if args.anchor_bottom else args.char_top
+    draw_motif(canvas, args.motif, hex_rgb(args.accent), W, H, top, args.seed)
     draw_title(canvas, args.title, font_path, hex_rgb(args.blue),
                int(H * 0.085), top - int(H * 0.02), W,
-               jitter=args.jitter, seed_base=args.seed)
+               jitter=args.jitter, seed_base=args.seed, scale=args.title_scale)
     canvas.paste(cut, ((W - args.char_width) // 2, top), cut)
 
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)

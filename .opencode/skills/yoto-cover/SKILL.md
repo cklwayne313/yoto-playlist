@@ -22,8 +22,8 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Property | Value |
 |---|---|
 | Canvas | 1200 × 1902 (2:3 portrait) |
-| Background | flat cream `#FFFFE8`, very fine grain, no scenery |
-| Title | chunky rounded blue `#0392D4`, hand-lettered (each glyph slightly rotated, scaled and dropped), fine grain and a soft shadow, top ~9–34% |
+| Background | one flat colour, very fine grain. Cream `#FFFFE8` is the default, but a series should vary it per card |
+| Title | chunky rounded, hand-lettered (each glyph slightly rotated, scaled and dropped), fine grain and a soft shadow, top ~9–34%. Blue `#0392D4` on cream is the default; vary the colour with the background |
 | Character | official brand art, chest-up, top of head ~37% down, body runs off the bottom edge |
 | Props | none. No jungle, vehicles, animals or sky |
 | Shadow | none, or a barely visible one |
@@ -84,6 +84,12 @@ Useful flags: `--char-top 700` (head position), `--char-width 1120`,
 Title control: `--jitter 1.0` sets how hand-drawn the lettering is (`0` gives
 clean vector type), `--seed 7` re-rolls it. The lettering is deterministic for a
 given seed, so a recorded command reproduces the file byte-for-byte.
+
+Variation: a set of cards with identical cream and blue reads as one template.
+Give each card its own `--bg`, `--blue` (title) and one `--motif` (`circle`,
+`hill` or `dots`) with `--accent`, ideally sampled from the character. Real Yoto
+cards each have their own scene; two cards in the same series should not look
+interchangeable. `--title-scale 0.9` lightens a long word.
 
 Art control: `--anchor-bottom` sits the character on the card's bottom edge.
 Use it whenever the source art is cropped at the bottom — otherwise the cut

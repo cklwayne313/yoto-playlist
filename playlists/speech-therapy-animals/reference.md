@@ -7,7 +7,7 @@
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
 **Cover:** `cover.jpg` — Super Simple's Roundabouts pig, taken from their official character banner,
-background replaced with cream and a title added. This is not a Yoto card and the
+soft pink background, a pale circle behind him and a rose title. This is not a Yoto card and the
 character is Super Simple's art, not ours.
 **Tracks:** 10 · **Runtime:** 28:02 · **Status:** verified
 
