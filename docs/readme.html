@@ -296,6 +296,11 @@ with nine labels each and crop marks. Print at <strong>100% / Actual size</stron
 <p><code>bash
 python3 .opencode/print/build_print.py</code></p>
 <p>See <a href="print/README.md">print/README.md</a> for paper and trimming notes.</p>
+<h2>Sending covers to a printer</h2>
+<p><code>vendor/trim/</code> has every card at <strong>54 × 85.5 mm, 300 DPI, no bleed</strong>;
+<code>vendor/bleed/</code> has the same art with <strong>3 mm bleed</strong>. Send whichever your printer
+asks for — trim art into a bleed workflow gives white edges. See
+<a href="vendor/README.md">vendor/README.md</a>.</p>
 <h2>Browsing it as a website</h2>
 <p><code>docs/</code> is a generated static site: the ranked shelf, one page per playlist with
 clickable links and covers, plus the ranking and this readme. Rebuild after
