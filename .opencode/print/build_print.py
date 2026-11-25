@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Build print-ready Yoto card labels.
+"""Build print-ready Yoto card label sheets from the one cover per playlist.
 
-    python3 .opencode/print/build_print.py
+    python3 .opencode/print/build_print.py            # PDFs only
+    python3 .opencode/print/build_print.py --normalise # also rewrite covers to 638x1011 @300dpi
 
-Outputs:
-  print/png/<folder>.png      638x1011 px, 300 DPI (54 x 85.6 mm)
-  print/cards-a4.pdf          nine labels per A4 page, true size, crop marks
-  print/cards-letter.pdf      nine labels per US Letter page
+There is one image per card: `playlists/<name>/cover.jpg`, at 638 x 1011 px
+(54 x 85.6 mm at 300 DPI). That same file is what the Yoto app accepts and what
+these PDFs embed.
 
 Print at 100% / "Actual size" — never "fit to page".
 """
 
+import argparse
 import glob
 import os
 
@@ -21,38 +22,36 @@ from reportlab.pdfgen import canvas
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "print")
-PNG_DIR = os.path.join(OUT, "png")
 
 CARD_W, CARD_H = 54.0 * mm, 85.6 * mm
-PX_W, PX_H = 638, 1011  # 300 DPI at card size
+PX_W, PX_H = 638, 1011
 GAP = 8 * mm
 MARK = 3 * mm
 MARK_OFF = 2 * mm
 
 
-def card_images():
+def covers():
     items = []
     for path in sorted(glob.glob(os.path.join(ROOT, "playlists", "*", "cover.jpg"))):
-        folder = os.path.basename(os.path.dirname(path))
-        items.append((folder, path))
+        items.append((os.path.basename(os.path.dirname(path)), path))
     return items
 
 
-def make_pngs(items):
-    os.makedirs(PNG_DIR, exist_ok=True)
-    for folder, path in items:
-        im = Image.open(path).convert("RGB")
-        # exact trim ratio: crop the 0.1px difference rather than stretch
-        target_ratio = PX_W / PX_H
-        w, h = im.size
-        if w / h > target_ratio:
-            new_w = int(round(h * target_ratio))
-            im = im.crop(((w - new_w) // 2, 0, (w + new_w) // 2, h))
-        else:
-            new_h = int(round(w / target_ratio))
-            im = im.crop((0, (h - new_h) // 2, w, (h + new_h) // 2))
-        im = im.resize((PX_W, PX_H), Image.LANCZOS)
-        im.save(os.path.join(PNG_DIR, f"{folder}.png"), dpi=(300, 300), optimize=True)
+def normalise(path):
+    im = Image.open(path).convert("RGB")
+    if im.size == (PX_W, PX_H):
+        im.save(path, dpi=(300, 300), quality=92, optimize=True)
+        return
+    target = PX_W / PX_H
+    w, h = im.size
+    if w / h > target:
+        nw = int(round(h * target))
+        im = im.crop(((w - nw) // 2, 0, (w + nw) // 2, h))
+    else:
+        nh = int(round(w / target))
+        im = im.crop((0, (h - nh) // 2, w, (h + nh) // 2))
+    im = im.resize((PX_W, PX_H), Image.LANCZOS)
+    im.save(path, dpi=(300, 300), quality=92, optimize=True)
 
 
 def crop_marks(c, x, y):
@@ -77,15 +76,14 @@ def make_pdf(items, page_size, name):
     c.setTitle("Yoto card labels")
 
     per_page = cols * rows
-    for i, (folder, _) in enumerate(items):
+    for i, (folder, cover) in enumerate(items):
         if i and i % per_page == 0:
             c.showPage()
         slot = i % per_page
         col, row = slot % cols, slot // cols
         x = x0 + col * (CARD_W + GAP)
         y = y0 + (rows - 1 - row) * (CARD_H + GAP)
-        c.drawImage(os.path.join(PNG_DIR, f"{folder}.png"), x, y, CARD_W, CARD_H,
-                    preserveAspectRatio=False, mask=None)
+        c.drawImage(cover, x, y, CARD_W, CARD_H, preserveAspectRatio=False)
         crop_marks(c, x, y)
 
     c.showPage()
@@ -94,12 +92,19 @@ def make_pdf(items, page_size, name):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--normalise", action="store_true",
+                    help="rewrite every cover to 638x1011 px with 300 DPI metadata")
+    args = ap.parse_args()
+
     os.makedirs(OUT, exist_ok=True)
-    items = card_images()
-    make_pngs(items)
+    items = covers()
+    if args.normalise:
+        for _, cover in items:
+            normalise(cover)
     a = make_pdf(items, A4, "cards-a4.pdf")
     l = make_pdf(items, letter, "cards-letter.pdf")
-    print(f"{len(items)} labels -> {a}, {l}, {PNG_DIR}")
+    print(f"{len(items)} labels -> {a}, {l}")
 
 
 if __name__ == "__main__":

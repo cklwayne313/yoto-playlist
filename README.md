@@ -91,9 +91,11 @@ its link, and notes on anything swapped or missing.
 
 ## Printing the covers
 
-`print/` holds true-size print files: 638 × 1011 px PNGs at 300 DPI (54 × 85.6
-mm, the size of a Yoto card) and A4 / US Letter sheets with nine labels each and
-crop marks. Print at **100% / Actual size** — never "fit to page". Rebuild with:
+Every card has **one** image: `playlists/<name>/cover.jpg` at **638 × 1011 px,
+300 DPI** — 54 × 85.6 mm, the size of a Yoto card. That same file is what the app
+accepts and what the print sheets embed. `print/` holds A4 / US Letter sheets
+with nine labels each and crop marks. Print at **100% / Actual size** — never
+"fit to page". Rebuild with:
 
 ```bash
 python3 .opencode/print/build_print.py

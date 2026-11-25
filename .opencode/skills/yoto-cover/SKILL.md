@@ -157,9 +157,10 @@ python3 .opencode/skills/yoto-cover/scripts/make_cover.py \
   --out playlists/<name>/cover.jpg
 ```
 
-- Output 1200×1902, cream `#FFFFE8`, blue `#0392D4`, character 1120px wide,
-  head top at y=700, `--jitter 1.0 --seed 7`, `--anchor-bottom` if the art is
-  cropped.
+- Composed at 1200×1902, then normalised to the card file: **638×1011 px at
+  300 DPI** (54×85.6 mm) with
+  `python3 .opencode/print/build_print.py --normalise`. One image per card —
+  the app upload and the print sheet use the same file.
 - Not official Yoto art. Personal card only.
 ~~~~
 

@@ -7,14 +7,23 @@ scaling the page, so read the two rules below.
 
 | File | What it is |
 |---|---|
-| `png/<playlist>.png` | 638 × 1011 px at 300 DPI = **54 × 85.6 mm**, one label per file |
 | `cards-a4.pdf` | 9 labels per A4 sheet, true size, with crop marks (5 pages) |
 | `cards-letter.pdf` | 9 labels per US Letter sheet, true size, with crop marks |
+
+There is no separate print image. Each card's **single** cover file is
+`playlists/<name>/cover.jpg` at 638 × 1011 px, 300 DPI (54 × 85.6 mm), and these
+PDFs embed it directly.
 
 Rebuild after changing a cover:
 
 ```bash
 python3 .opencode/print/build_print.py
+```
+
+If a cover was generated at 1200 × 1902, normalise it to the card file once:
+
+```bash
+python3 .opencode/print/build_print.py --normalise
 ```
 
 ## Print rules

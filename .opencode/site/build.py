@@ -211,7 +211,7 @@ def main():
         cov_src = os.path.join(ROOT, "playlists", folder, "cover.jpg")
         if os.path.exists(cov_src):
             img = Image.open(cov_src).convert("RGB")
-            img.thumbnail((720, 1141), Image.LANCZOS)
+            img.thumbnail((400, 634), Image.LANCZOS)
             img.save(os.path.join(DOCS, "covers", f"{folder}.jpg"), quality=82, optimize=True)
 
     cards = []
