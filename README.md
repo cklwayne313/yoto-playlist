@@ -77,10 +77,10 @@ the Make Your Own card, and it looks the same on the player.
 - `super-simple-favourites` has a custom cover: Super Simple's own Noodle
   artwork, cream background, hand-lettered title.
 - Every custom cover carries the small hand-lettered **`HimHim`** mark, top-left,
-  in that card's own title colour. It's the family's label, never a publisher
-  logo, so the nine custom cards read as one set on the shelf without pretending
-  to be official cards. Stamped with
-  `.opencode/skills/yoto-cover/scripts/add_brand.py`.
+  in the same two colours every time — ink + coral, cream + coral on the dark
+  card. It's the family's label, never a publisher logo, so the nine custom
+  cards read as one set on the shelf without pretending to be official cards.
+  Stamped with `.opencode/skills/yoto-cover/scripts/add_brand.py`.
 
 Custom covers are built with the **`yoto-cover` skill** —
 `.opencode/skills/yoto-cover/` holds the house style (1200×1902, cream

@@ -144,9 +144,12 @@ python3 .opencode/skills/yoto-cover/scripts/add_brand.py --all
 ```
 
 - Hand-lettered in the same face as the title, about a quarter of its height,
-  coloured with that card's own title colour — sampled from the top band (the
-  darkest cluster on a pale card, the lightest on a dark one). It never adds a
-  colour to the palette, and is always legible on its background.
+  in the house two-tone: `Him` in ink `#26323A`, `Him` in coral `#C9552F`. On a
+  dark card the ink becomes cream `#FBF3DE` — a logo reversal, not a colour
+  change. The card's own title colour is deliberately **not** used: nine
+  different-coloured marks read as decoration, not a brand.
+- `--style two-tone` is the default; `ink`, `trio`, `rainbow` and `title` exist
+  for mock-ups but are not the house style.
 - Fixed position and size on every card: `--size-factor 0.064`, x at 5.8% of
   width, y at 2% of height. Sameness is what makes it read as a mark rather than
   decoration.
