@@ -287,6 +287,13 @@ title. Ask for a cover and it runs automatically.</p>
 <p>Send a YouTube link — a playlist, a single video, or a card you've seen. I'll add
 <code>playlists/&lt;name&gt;/reference.md</code> with the tracks pulled out, in order, each with
 its link, and notes on anything swapped or missing.</p>
+<h2>Printing the covers</h2>
+<p><code>print/</code> holds true-size print files: 638 × 1011 px PNGs at 300 DPI (54 × 85.6
+mm, the size of a Yoto card) and A4 / US Letter sheets with nine labels each and
+crop marks. Print at <strong>100% / Actual size</strong> — never "fit to page". Rebuild with:</p>
+<p><code>bash
+python3 .opencode/print/build_print.py</code></p>
+<p>See <a href="print/README.md">print/README.md</a> for paper and trimming notes.</p>
 <h2>Browsing it as a website</h2>
 <p><code>docs/</code> is a generated static site: the ranked shelf, one page per playlist with
 clickable links and covers, plus the ranking and this readme. Rebuild after

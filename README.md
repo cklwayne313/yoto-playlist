@@ -89,6 +89,18 @@ Send a YouTube link — a playlist, a single video, or a card you've seen. I'll 
 `playlists/<name>/reference.md` with the tracks pulled out, in order, each with
 its link, and notes on anything swapped or missing.
 
+## Printing the covers
+
+`print/` holds true-size print files: 638 × 1011 px PNGs at 300 DPI (54 × 85.6
+mm, the size of a Yoto card) and A4 / US Letter sheets with nine labels each and
+crop marks. Print at **100% / Actual size** — never "fit to page". Rebuild with:
+
+```bash
+python3 .opencode/print/build_print.py
+```
+
+See [print/README.md](print/README.md) for paper and trimming notes.
+
 ## Browsing it as a website
 
 `docs/` is a generated static site: the ranked shelf, one page per playlist with

@@ -122,6 +122,14 @@ def md_to_html(text):
     return markdown.Markdown(extensions=["tables", "sane_lists"]).convert(text)
 
 
+CUSTOM_COVERS = {
+    "speech-therapy-animals", "speech-therapy-actions", "speech-therapy-food",
+    "speech-therapy-routines", "speech-therapy-social", "speech-therapy-feelings",
+    "speech-therapy-cantonese-animals", "speech-therapy-cantonese-routines",
+    "super-simple-favourites",
+}
+
+
 def parse_ranking():
     text = read(os.path.join(ROOT, "RANKING.md"))
     rows = []
@@ -218,8 +226,9 @@ def main():
         elif raw.startswith("言語治療"):
             kicker = "言語治療" 
         lang = "cantonese" if "cantonese" in folder else "english"
+        cover = "custom" if folder in CUSTOM_COVERS else "official"
         speech = r["speech"].count("★")
-        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" data-verdict="{r['verdict']}" data-lang="{lang}" data-speech="{speech}" href="pages/{folder}.html">
+        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" data-verdict="{r['verdict']}" data-lang="{lang}" data-cover="{cover}" data-speech="{speech}" href="pages/{folder}.html">
   <span class="rank">{r['rank']}</span>
   <img src="covers/{folder}.jpg" alt="" loading="lazy">
   <div class="body">
@@ -248,6 +257,12 @@ def main():
     <button class="chip" data-value="cantonese">Cantonese</button>
     <button class="chip" data-value="english">English</button>
   </div>
+  <div class="chips" data-group="cover">
+    <span class="chip-group-label">Cover</span>
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="official">Official Yoto art</button>
+    <button class="chip" data-value="custom">Custom art</button>
+  </div>
   <div class="chips" data-group="speech">
     <span class="chip-group-label">Speech</span>
     <button class="chip active" data-value="all">All</button>
@@ -260,7 +275,7 @@ def main():
 {''.join(cards)}
 </div>
 <script>
-const state = {{ q: "", verdict: "all", lang: "all", speech: "all" }};
+const state = {{ q: "", verdict: "all", lang: "all", cover: "all", speech: "all" }};
 const cards = [...document.querySelectorAll("#grid .card")];
 const count = document.getElementById("count");
 const q = document.getElementById("q");
@@ -271,9 +286,10 @@ function apply() {{
     const okName = !state.q || card.dataset.name.includes(state.q);
     const okVerdict = state.verdict === "all" || card.dataset.verdict === state.verdict;
     const okLang = state.lang === "all" || card.dataset.lang === state.lang;
+    const okCover = state.cover === "all" || card.dataset.cover === state.cover;
     const okSpeech = state.speech === "all" ||
       (state.speech === "5" ? card.dataset.speech === "5" : Number(card.dataset.speech) >= 4);
-    const ok = okName && okVerdict && okLang && okSpeech;
+    const ok = okName && okVerdict && okLang && okCover && okSpeech;
     card.style.display = ok ? "" : "none";
     if (ok) shown++;
   }}
