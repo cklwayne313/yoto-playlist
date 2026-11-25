@@ -36,8 +36,16 @@ a{color:#036f9f}
 .sub{color:var(--muted);margin:0 0 18px}
 nav a{margin-left:16px;font-weight:600;text-decoration:none}
 nav a:first-child{margin-left:0}
+.filters{display:flex;flex-direction:column;gap:10px;margin:20px 0 6px}
 .search{width:100%;max-width:380px;padding:10px 14px;border:1px solid var(--line);
-  border-radius:999px;background:#fff;font-size:15px;margin:18px 0 8px}
+  border-radius:999px;background:#fff;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:13px;
+  padding:6px 12px;border-radius:999px;cursor:pointer;line-height:1}
+.chip:hover{border-color:#cfd8dd}
+.chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip-group-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-right:2px}
+.count{font-size:13px;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:18px}
 .card{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:12px;text-decoration:none;color:inherit;position:relative}
@@ -209,7 +217,9 @@ def main():
             kicker = "Speech therapy"
         elif raw.startswith("言語治療"):
             kicker = "言語治療" 
-        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" href="pages/{folder}.html">
+        lang = "cantonese" if "cantonese" in folder else "english"
+        speech = r["speech"].count("★")
+        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" data-verdict="{r['verdict']}" data-lang="{lang}" data-speech="{speech}" href="pages/{folder}.html">
   <span class="rank">{r['rank']}</span>
   <img src="covers/{folder}.jpg" alt="" loading="lazy">
   <div class="body">
@@ -222,18 +232,69 @@ def main():
 
     index_body = f"""
 <p class="sub">All {len(ranking)} playlists, ranked for a 2-year-old with a speech delay — speech value first, then age fit.</p>
-<input class="search" id="q" placeholder="Filter by name…" aria-label="Filter playlists">
+<div class="filters">
+  <input class="search" id="q" placeholder="Search by name…" aria-label="Search playlists">
+  <div class="chips" data-group="verdict">
+    <span class="chip-group-label">Show</span>
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="CORE">Core</button>
+    <button class="chip" data-value="GOOD">Good</button>
+    <button class="chip" data-value="FUN">Fun</button>
+    <button class="chip" data-value="LATER">Later</button>
+  </div>
+  <div class="chips" data-group="lang">
+    <span class="chip-group-label">Language</span>
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="cantonese">Cantonese</button>
+    <button class="chip" data-value="english">English</button>
+  </div>
+  <div class="chips" data-group="speech">
+    <span class="chip-group-label">Speech</span>
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="5">5 stars</button>
+    <button class="chip" data-value="4">4+ stars</button>
+  </div>
+  <div class="count" id="count">{len(ranking)} shown</div>
+</div>
 <div class="grid" id="grid">
 {''.join(cards)}
 </div>
 <script>
-const q = document.getElementById('q');
-q.addEventListener('input', () => {{
-  const v = q.value.trim().toLowerCase();
-  document.querySelectorAll('#grid .card').forEach(c => {{
-    c.style.display = (!v || c.dataset.name.includes(v)) ? '' : 'none';
+const state = {{ q: "", verdict: "all", lang: "all", speech: "all" }};
+const cards = [...document.querySelectorAll("#grid .card")];
+const count = document.getElementById("count");
+const q = document.getElementById("q");
+
+function apply() {{
+  let shown = 0;
+  for (const card of cards) {{
+    const okName = !state.q || card.dataset.name.includes(state.q);
+    const okVerdict = state.verdict === "all" || card.dataset.verdict === state.verdict;
+    const okLang = state.lang === "all" || card.dataset.lang === state.lang;
+    const okSpeech = state.speech === "all" ||
+      (state.speech === "5" ? card.dataset.speech === "5" : Number(card.dataset.speech) >= 4);
+    const ok = okName && okVerdict && okLang && okSpeech;
+    card.style.display = ok ? "" : "none";
+    if (ok) shown++;
+  }}
+  count.textContent = shown + " of " + cards.length + " shown";
+}}
+
+q.addEventListener("input", () => {{ state.q = q.value.trim().toLowerCase(); apply(); }});
+
+document.querySelectorAll(".chips").forEach(group => {{
+  const key = group.dataset.group;
+  group.querySelectorAll(".chip").forEach(chip => {{
+    chip.addEventListener("click", () => {{
+      group.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      state[key] = chip.dataset.value;
+      apply();
+    }});
   }});
 }});
+
+apply();
 </script>
 """
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as fh:
