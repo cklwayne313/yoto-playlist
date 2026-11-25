@@ -22,15 +22,16 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Property | Value |
 |---|---|
 | Canvas | 1200 × 1902 (2:3 portrait) |
-| Background | one flat colour, very fine grain. Cream `#FFFFE8` is the default, but a series should vary it per card |
+| Background | a simple painted scene, generated for that card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
 | Title | chunky rounded, hand-lettered (each glyph slightly rotated, scaled and dropped), fine grain and a soft shadow, top ~9–34%. Blue `#0392D4` on cream is the default; vary the colour with the background |
 | Character | official brand art, chest-up, top of head ~37% down, body runs off the bottom edge |
-| Props | none. No jungle, vehicles, animals or sky |
+| Props | one scene idea per card, painted in the background. Not a collage of objects around the character |
 | Shadow | none, or a barely visible one |
 
-These come from sampling `playlists/happy-songs/cover.jpg` (a real Yoto Super
-Simple card). Match that card, not a YouTube thumbnail — thumbnails are far
-busier and more saturated.
+Read several real cards, not one. `happy-songs` is the plainest card in the
+set; `silly-songs` has a hill and bugs, `bedtime-songs` a starfield,
+`underwater-songs` a sea. Match that range, not a YouTube thumbnail — thumbnails
+are far busier and more saturated.
 
 ## Workflow
 
@@ -68,11 +69,32 @@ No text, no letters, no shapes, no shadows, no outline, no extra objects.
 
 Verify the result before composing: the character must be unchanged.
 
+### 2b. Paint the background
+
+Generate the scene separately, with no character and no text, so it can be
+composited behind clean type later:
+
+```
+Portrait 2:3 children's book background painting, flat 2D gouache with fine
+paper grain, no characters, no text, no letters, no logos.
+Scene: <one idea — meadow, sunburst, kitchen table, morning sky, bunting,
+concentric rings, underwater, night sky>. Keep the top third calm and open for
+a title.
+```
+
+Then pass it in with `--background`. Keep the character on its own layer: the
+model paints, the script sets the character and the type.
+
+If the character art was flattened onto cream and its body is cream/white, keying
+will chew the silhouette. Either flatten onto chroma green (`#00B140`) instead,
+or sit the character on a cream panel so the edge is invisible.
+
 ### 3. Compose
 
 ```bash
 python3 scripts/make_cover.py \
   --art /tmp/opencode/noodle-cream.jpg \
+  --background /tmp/opencode/bg-meadow.jpg \
   --title "MY" "FAVOURITES" \
   --out playlists/<name>/cover.jpg
 ```

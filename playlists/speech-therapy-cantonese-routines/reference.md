@@ -7,7 +7,7 @@ and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass)
 **Cover:** `cover.jpg` — the Roundabouts penguin in his red beanie, from Super Simple's official
-banner art, warm grey background, dots and a dark red Chinese title. Not a Yoto
+banner art, painted navy night sky with stars and a moon, and a cream Chinese title. Not a Yoto
 card.
 **Tracks:** 10 · **Runtime:** 21:15 · **Status:** verified
 

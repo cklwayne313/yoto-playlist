@@ -6,7 +6,7 @@
 and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS_Language_0-6_TC_2203.pdf)
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass)
-**Cover:** `cover.jpg` — the white Peekaboo cat from Super Simple's official art, on pale blue with a hill behind him and a Chinese title, so a white character still reads. Not a Yoto card.
+**Cover:** `cover.jpg` — the white Peekaboo cat from Super Simple's official art, on a cream arch over a painted garden, with a dark green Chinese title, so a white character still reads. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 23:02 · **Status:** verified
 
 ## 點用（how to use it）

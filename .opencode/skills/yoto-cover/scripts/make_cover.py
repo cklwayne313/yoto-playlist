@@ -8,6 +8,7 @@ title above it. See ../SKILL.md for the house style.
 """
 
 import argparse
+import math
 import os
 import random
 import sys
@@ -93,6 +94,112 @@ def fit_size(text, font_path, max_w, max_h, start=420):
             return probe
         probe -= 6
     return 24
+
+
+def tint(c, f):
+    c = tuple(c)
+    if f <= 1:
+        return tuple(max(0, int(v * f)) for v in c)
+    return tuple(min(255, int(v + (255 - v) * (f - 1))) for v in c)
+
+
+def vgrad(W, H, top, bottom):
+    arr = np.zeros((H, W, 3), dtype=np.uint8)
+    for y in range(H):
+        t = y / max(1, H - 1)
+        arr[y, :] = [int(top[i] + (bottom[i] - top[i]) * t) for i in range(3)]
+    return Image.fromarray(arr)
+
+
+def draw_scene(canvas, kind, base, accent, W, H, seed):
+    """A simple painted scene behind the character. Yoto cards each have one;
+    a flat fill is what makes a custom card look homemade."""
+    if kind in (None, "none"):
+        return
+    b, a = tuple(base), tuple(accent)
+    rnd = random.Random(seed)
+    if kind == "meadow":
+        canvas.paste(vgrad(W, H, tint(b, 1.03), b))
+        d = ImageDraw.Draw(canvas)
+        d.ellipse([-W * 0.45, H * 0.80, W * 0.85, H * 1.2], fill=tint(a, 1.0))
+        d.ellipse([W * 0.25, H * 0.85, W * 1.45, H * 1.25], fill=tint(a, 0.93))
+        for _ in range(20):
+            x, y = rnd.uniform(0, W), rnd.uniform(H * 0.82, H * 0.99)
+            r = rnd.uniform(4, 8)
+            d.ellipse([x - r, y - r, x + r, y + r], fill=(255, 255, 255))
+            r2 = r * 0.38
+            d.ellipse([x - r2, y - r2, x + r2, y + r2], fill=(238, 186, 86))
+    elif kind == "rays":
+        cx, cy, R = W / 2, H * 0.18, W * 1.5
+        for i in range(18):
+            a0 = math.pi * 2 * i / 18
+            a1 = a0 + math.pi / 18
+            p1 = (cx + math.cos(a0) * R, cy + math.sin(a0) * R)
+            p2 = (cx + math.cos(a1) * R, cy + math.sin(a1) * R)
+            d = ImageDraw.Draw(canvas)
+            d.polygon([(cx, cy), p1, p2], fill=tint(a, 1.0) if i % 2 else tint(b, 0.96))
+    elif kind == "table":
+        d = ImageDraw.Draw(canvas)
+        top = H * 0.70
+        d.rectangle([0, top, W, H], fill=a)
+        cell = W / 8
+        for row in range(4):
+            for col in range(8):
+                if (row + col) % 2 == 0:
+                    d.rectangle([col * cell, top + row * cell, (col + 1) * cell, top + (row + 1) * cell],
+                                fill=(255, 255, 255))
+        for _ in range(16):
+            x, y = rnd.uniform(0, W), rnd.uniform(H * 0.34, H * 0.68)
+            r = rnd.uniform(3, 7)
+            d.ellipse([x - r, y - r, x + r, y + r], fill=tint(a, 0.9))
+    elif kind == "sky":
+        canvas.paste(vgrad(W, H, tint(b, 1.05), tint(b, 0.97)))
+        d = ImageDraw.Draw(canvas)
+        d.ellipse([W * 0.74, H * 0.05, W * 0.97, H * 0.19], fill=(255, 224, 130))
+        for cx, cy, s in [(0.18, 0.10, 1.0), (0.55, 0.06, 0.8), (0.30, 0.20, 0.7)]:
+            for dx, dy, r in [(-0.06, 0, 0.045), (0, -0.02, 0.055), (0.06, 0, 0.045), (0.02, 0.01, 0.05)]:
+                d.ellipse([W * (cx + dx - r), H * (cy + dy - r * 1.8),
+                           W * (cx + dx + r), H * (cy + dy + r * 1.8)], fill=(255, 255, 255))
+    elif kind == "bunting":
+        d = ImageDraw.Draw(canvas)
+        for row, y in enumerate((H * 0.035, H * 0.085)):
+            d.line([(0, y), (W, y + H * 0.01)], fill=tint(a, 0.75), width=3)
+            n = 9
+            for i in range(n):
+                x = (i + 0.5) * W / n
+                w = W / n * 0.34
+                colour = a if (i + row) % 2 == 0 else (255, 255, 255)
+                d.polygon([(x - w, y), (x + w, y), (x, y + H * 0.045)], fill=colour)
+        for _ in range(12):
+            x, y = rnd.uniform(0, W), rnd.uniform(H * 0.45, H * 0.75)
+            r = rnd.uniform(5, 11)
+            d.ellipse([x - r, y - r, x + r, y + r], fill=tint(a, 1.0))
+    elif kind == "calm":
+        d = ImageDraw.Draw(canvas)
+        for i, f in enumerate((0.35, 0.55, 0.75)):
+            r = W * f
+            d.ellipse([W / 2 - r, H * 0.66 - r, W / 2 + r, H * 0.66 + r],
+                      outline=tint(a, 1.0), width=max(6, int(W * 0.012)))
+    elif kind == "sea":
+        canvas.paste(vgrad(W, H, tint(b, 1.08), tint(b, 0.82)))
+        d = ImageDraw.Draw(canvas)
+        for i, y in enumerate((0.86, 0.92, 0.97)):
+            d.arc([-W * 0.3 + i * W * 0.25, H * y - H * 0.05,
+                   W * 0.6 + i * W * 0.25, H * y + H * 0.05], 180, 360,
+                  fill=tint(a, 0.9), width=max(5, int(W * 0.008)))
+        for _ in range(16):
+            x, y = rnd.uniform(0, W), rnd.uniform(H * 0.35, H * 0.85)
+            r = rnd.uniform(5, 14)
+            d.ellipse([x - r, y - r, x + r, y + r], outline=(255, 255, 255), width=3)
+    elif kind == "night":
+        canvas.paste(vgrad(W, H, (28, 44, 92), (12, 20, 48)))
+        d = ImageDraw.Draw(canvas)
+        for _ in range(70):
+            x, y = rnd.uniform(0, W), rnd.uniform(0, H)
+            r = rnd.uniform(1.2, 3.2)
+            d.ellipse([x - r, y - r, x + r, y + r], fill=(255, 249, 214))
+        d.ellipse([W * 0.72, H * 0.07, W * 0.93, H * 0.23], fill=(255, 236, 160))
+        d.ellipse([W * 0.77, H * 0.05, W * 0.98, H * 0.21], fill=(16, 26, 58))
 
 
 def draw_motif(canvas, kind, accent, W, H, char_top, seed):
@@ -222,6 +329,8 @@ def main():
     p.add_argument("--no-grain", action="store_true")
     p.add_argument("--jitter", type=float, default=1.0, help="hand-lettered wobble, 0 disables")
     p.add_argument("--seed", type=int, default=7, help="change to re-roll the lettering")
+    p.add_argument("--background", default=None, help="painted background image to use instead of a flat canvas")
+    p.add_argument("--scene", default="none", help="none, meadow, rays, table, sky, bunting, calm, sea or night")
     p.add_argument("--motif", default="none", help="none, circle, hill or dots")
     p.add_argument("--accent", default="#EFE9D6", help="colour of the background motif")
     p.add_argument("--title-scale", type=float, default=1.0, help="shrink the title for a lighter look")
@@ -242,14 +351,24 @@ def main():
     cut = cut.resize((args.char_width, int(cut.size[1] * scale)), Image.LANCZOS)
 
     W, H = args.width, args.height
-    canvas = Image.new("RGB", (W, H), hex_rgb(args.bg))
-    if not args.no_grain:
-        noise = np.random.default_rng(args.seed).normal(0, 2.6, (H, W, 1))
-        canvas = Image.fromarray(np.clip(np.asarray(canvas).astype(np.float32) + noise, 0, 255).astype(np.uint8))
+    if args.background:
+        bg = Image.open(args.background).convert("RGB")
+        scale = max(W / bg.width, H / bg.height)
+        bg = bg.resize((int(bg.width * scale) + 1, int(bg.height * scale) + 1), Image.LANCZOS)
+        left, top = (bg.width - W) // 2, (bg.height - H) // 2
+        canvas = bg.crop((left, top, left + W, top + H))
+    else:
+        canvas = Image.new("RGB", (W, H), hex_rgb(args.bg))
+        if not args.no_grain:
+            noise = np.random.default_rng(args.seed).normal(0, 2.6, (H, W, 1))
+            canvas = Image.fromarray(np.clip(np.asarray(canvas).astype(np.float32) + noise, 0, 255).astype(np.uint8))
 
     font_path = ensure_font(args.font)
     top = H - cut.height + 15 if args.anchor_bottom else args.char_top
-    draw_motif(canvas, args.motif, hex_rgb(args.accent), W, H, top, args.seed)
+    if not args.background:
+        if args.scene != "none":
+            draw_scene(canvas, args.scene, hex_rgb(args.bg), hex_rgb(args.accent), W, H, args.seed)
+        draw_motif(canvas, args.motif, hex_rgb(args.accent), W, H, top, args.seed)
     draw_title(canvas, args.title, font_path, hex_rgb(args.blue),
                int(H * 0.085), top - int(H * 0.02), W,
                jitter=args.jitter, seed_base=args.seed, scale=args.title_scale)

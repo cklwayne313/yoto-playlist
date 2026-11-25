@@ -70,9 +70,10 @@ the Make Your Own card, and it looks the same on the player.
   Noodle & Pals friend (actions), a Bumble Num (food), Carl's Rescue Crew
   (routines), a Rhymington Square monster (social), Lulu the Owl (feelings), the
   Peekaboo cat (Cantonese animals) and a Roundabouts penguin (Cantonese
-  routines). Each has its own background colour, a single quiet motif (circle,
-  hill or dots) and its own title colour, so no two read as the same template.
-  The art is Super Simple's, not ours.
+  routines). Each sits in its own painted scene — meadow, sunburst, kitchen,
+  morning sky, party wall, sand rings, garden, night sky — with its own title
+  colour, so no two read as the same template. The characters are Super
+  Simple's; the backgrounds were painted for these cards.
 - `super-simple-favourites` has a custom cover: Super Simple's own Noodle
   artwork, cream background, hand-lettered title.
 
