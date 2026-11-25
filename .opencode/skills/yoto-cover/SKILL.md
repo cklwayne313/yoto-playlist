@@ -132,7 +132,33 @@ if no font is supplied.
 - Look for a pale halo or green fringe at the character edge — increase
   `--erode` (default 7) if you see one.
 
-### 5. Record it
+### 5. Stamp the house mark
+
+Every custom cover carries the small `HimHim` wordmark, top-left, so the nine
+custom cards read as one shelf set a child can pick out. It is the family's own
+label, not a publisher logo, and it only ever goes on cards we made.
+
+```bash
+python3 .opencode/skills/yoto-cover/scripts/add_brand.py playlists/<name>/cover.jpg
+python3 .opencode/skills/yoto-cover/scripts/add_brand.py --all
+```
+
+- Hand-lettered in the same face as the title, about a quarter of its height,
+  coloured with that card's own title colour — sampled from the top band (the
+  darkest cluster on a pale card, the lightest on a dark one). It never adds a
+  colour to the palette, and is always legible on its background.
+- Fixed position and size on every card: `--size-factor 0.064`, x at 5.8% of
+  width, y at 2% of height. Sameness is what makes it read as a mark rather than
+  decoration.
+- Stamp it on the finished 638×1011 file, after the title, so it is drawn at
+  final size. It stamps in place: to adjust one, restore the plain cover
+  (`git checkout -- playlists/<name>/cover.jpg`) and run it again.
+- Check at 150 px wide — `HimHim` must still be readable. If not, raise
+  `--size-factor` in steps of 0.004.
+- Never on official Yoto cards. That art is the publisher's, and a mark on it
+  would imply an endorsement.
+
+### 6. Record it
 
 In the playlist's `reference.md`, say what the cover is and that it is **not
 official artwork** — which art was used, that the background was replaced, and
@@ -170,9 +196,9 @@ image is worse than none.
 
 ## Pitfalls
 
-- **Do not put the brand logo on it.** Use a plain word in the same shape
-  language. A card that looks official is a problem; one that looks like the
-  same *series* is the goal.
+- **Never put the publisher's logo on it** — Yoto's, Super Simple's, Ms.
+  Rachel's. Use the family's own `HimHim` mark instead. A card that looks
+  official is a problem; one that looks like the same *series* is the goal.
 - **Don't trace over or filter a copyrighted image** to hide its origin. Use
   the publisher's own art, credit it in the reference file, and keep the card
   personal — no publishing, no selling.
