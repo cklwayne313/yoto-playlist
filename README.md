@@ -103,6 +103,13 @@ python3 .opencode/print/build_print.py
 
 See [print/README.md](print/README.md) for paper and trimming notes.
 
+## Sending covers to a printer
+
+`vendor/trim/` has every card at **54 × 85.5 mm, 300 DPI, no bleed**;
+`vendor/bleed/` has the same art with **3 mm bleed**. Send whichever your printer
+asks for — trim art into a bleed workflow gives white edges. See
+[vendor/README.md](vendor/README.md).
+
 ## Browsing it as a website
 
 `docs/` is a generated static site: the ranked shelf, one page per playlist with
