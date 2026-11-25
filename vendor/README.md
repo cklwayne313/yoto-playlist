@@ -14,6 +14,13 @@ the cut line moves or shrinks.
 All files: JPEG, quality 95, sRGB, 300 DPI, portrait. Filenames match the
 playlist folders.
 
+## Just the top 20
+
+`yoto-labels-top20-54x85.5.zip` — the 20 cards on the shelf, one flat zip, same
+54 × 85.5 mm trim files, named `01-…` to `20-…` in shelf order so the printer
+returns them in the order they are used.
+
+
 ## Ask the vendor these three questions
 
 1. **Bleed?** If yes, send `vendor/bleed/`. If they say "no bleed", send
