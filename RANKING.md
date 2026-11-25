@@ -4,8 +4,10 @@ A single place to check before you put a card on the shelf. Ranked for **one
 listener**: a 2-year-old boy with a possible speech delay, Cantonese at home,
 English cards.
 
-**Order = speech value first, then age fit.** Fidelity only says how close the
-links are to a real card; it does not change what he gets out of it.
+**Order = speech value first, then age fit** — with one exception: a card he asks
+for by name gets shelf room, because a song played ten times beats a better one
+played once. Fidelity only says how close the links are to a real card; it does
+not change what he gets out of it.
 
 Last checked: **25 Nov 2026**.
 
@@ -37,27 +39,27 @@ Last checked: **25 Nov 2026**.
 | 7 | `sing-and-dance-with-raffi` | 10 | ★★★★★ | ★★★★★ | ★★★★★ | CORE | Action songs — he can do them before he can say them. |
 | 8 | `caspar-singalong` | 16 | ★★★★★ | ★★★★★ | ★★★★★ | CORE | Same acoustic feel, with call-and-response built in. |
 | 9 | `super-simple-favourites` | 16 | ★★★★★ | ★★★★★ | ★★★★☆ | CORE | Your six plus routines and body parts. Five match the card to the second. |
-| 10 | `speech-therapy-english` | 12 | ★★★★★ | ★★★★★ | — | CORE | What EI SLPs actually name, with a language target per track. |
-| 11 | `speech-therapy-actions` | 10 | ★★★★★ | ★★★★★ | — | CORE | Ten Noodle & Pals verb songs, all new to the library. |
-| 12 | `speech-therapy-animals` | 10 | ★★★★★ | ★★★★★ | — | CORE | Naming and sound imitation, ending in Old MacDonald. |
-| 13 | `speech-therapy-food` | 10 | ★★★★★ | ★★★★★ | — | CORE | Yes/no and choosing, usable at the table tonight. |
-| 14 | `speech-therapy-routines` | 10 | ★★★★★ | ★★★★★ | — | CORE | One routine a week: shoes, teeth, hands, bath, tidy, bed. |
-| 15 | `row-your-boat` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Action songs — he does the rowing long before he can say the line, which is the order imitation comes in. Recordings differ from the card. |
-| 16 | `little-bo-peep` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Sequence songs: every verse repeats the one before, so the repetition is built in and there is a pause where the next word goes. Yoto Original, so recordings differ. |
-| 17 | `underwater-songs` | 14 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | Sea nouns, colours and counting, one idea per line. Finny uploads run slightly long. |
-| 18 | `pre-school-songs` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Traditional rhymes at nursery pace — slower and plainer than the TV-brand cards. Different recordings. |
-| 19 | `bedtime-songs` | 15 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | Low word density by design, but the same routine words at the same time every night is how they stick. End of the day, not teaching. |
-| 20 | `super-simple-christmas` | 15 | ★★★★☆ | ★★★★☆ | ★★★★★ | GOOD | Same quality as the other Super Simple cards, with festive nouns he will hear everywhere in December. Shelve it in January. |
-| 21 | `speech-therapy-social` | 10 | ★★★★★ | ★★★★☆ | — | CORE | Name, please, turns, thank you, bye — whole phrases, so it lands after single words and routines, not before them. |
-| 22 | `speech-therapy-feelings` | 10 | ★★★★★ | ★★★☆☆ | — | CORE | Names the feeling, then gives him a way to settle. Emotion words are the last to arrive, so this is the gentlest of the therapy cards. |
-| 23 | `doggyland` | 17 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Short, repetitive, affirmations and social scripts. Busier beats than Raffi. |
-| 24 | `farm-songs` | 15 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Animal names and sounds, Super Simple. Strong for vocabulary. |
-| 25 | `sesame-elmo` | 10 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Elmo's World songs, all official, action-based — but Elmo talks fast, so the words blur together. |
-| 26 | `happy-songs` | 14 | ★★★★☆ | ★★★★☆ | ★★★★★ | GOOD | 13 of 14 durations match exactly; cheerful rather than language-dense. |
-| 27 | `sesame-street` | 10 | ★★★★☆ | ★★★☆☆ | ★★★★☆ | GOOD | The ABC and number tracks do the language work, but the vocals run fast and overlap. Better once he is talking more. |
-| 28 | `blippi-vehicles` | 12 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Concrete vocabulary (dig, lift, spray), but screen-show energy. |
-| 29 | `best-of-the-wiggles` | 20 | ★★★☆☆ | ★★★★☆ | ★★★★☆ | GOOD | Movement first. Use when he is restless, not to wind down. |
-| 30 | `silly-songs` | 15 | ★★★★☆ | ★★★★☆ | ★★★★☆ | FUN | Nonsense and wrong words — good for prediction and humour, wilder than the rest. |
+| 10 | `speech-therapy-actions` | 10 | ★★★★★ | ★★★★★ | — | CORE | Ten Noodle & Pals verb songs — Super Simple's own recordings, one verb each, and a gesture to copy on every line. |
+| 11 | `speech-therapy-animals` | 10 | ★★★★★ | ★★★★★ | — | CORE | Naming and sound imitation, ending in Old MacDonald. |
+| 12 | `speech-therapy-food` | 10 | ★★★★★ | ★★★★★ | — | CORE | Yes/no and choosing, usable at the table tonight. |
+| 13 | `row-your-boat` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Action songs — he does the rowing long before he can say the line, which is the order imitation comes in. Recordings differ from the card. |
+| 14 | `little-bo-peep` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Sequence songs: every verse repeats the one before, so the repetition is built in and there is a pause where the next word goes. Yoto Original, so recordings differ. |
+| 15 | `farm-songs` | 15 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | Super Simple, animal names and sounds. The Old MacDonald pause — animal sound, then silence, then he tries — is the best late-talker move in the whole library. |
+| 16 | `underwater-songs` | 14 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | Sea nouns, colours and counting, one idea per line. Finny uploads run slightly long. |
+| 17 | `bedtime-songs` | 15 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | Low word density by design, but the same routine words at the same time every night is how they stick. End of the day, not teaching. |
+| 18 | `happy-songs` | 14 | ★★★★☆ | ★★★★☆ | ★★★★★ | GOOD | 13 of 14 durations match exactly. Feelings, greetings and "here you are, thank you" — singable versions of the therapy targets. |
+| 19 | `super-simple-christmas` | 15 | ★★★★☆ | ★★★★☆ | ★★★★★ | GOOD | Same quality as the other Super Simple cards, with festive nouns he will hear everywhere in December. Shelve it in January. |
+| 20 | `silly-songs` | 15 | ★★★★☆ | ★★★★☆ | ★★★★☆ | FUN | Nonsense and wrong words. Not vocabulary — but spotting the wrong word is prediction, and prediction is what fill-in-the-blank singing runs on. In the top 20 because he asks for it. |
+| 21 | `speech-therapy-routines` | 10 | ★★★★★ | ★★★★★ | — | CORE | One routine a week: shoes, teeth, hands, bath, tidy, bed. Second shelf because the Cantonese routines card already does this in his home language. |
+| 22 | `speech-therapy-english` | 12 | ★★★★★ | ★★★★★ | — | CORE | What EI SLPs actually name, with a language target per track. A survey of the cards above rather than a target of its own. |
+| 23 | `speech-therapy-social` | 10 | ★★★★★ | ★★★★☆ | — | CORE | Name, please, turns, thank you, bye — whole phrases, so it lands after single words and routines, not before them. |
+| 24 | `speech-therapy-feelings` | 10 | ★★★★★ | ★★★☆☆ | — | CORE | Names the feeling, then gives him a way to settle. Emotion words are the last to arrive, so this is the gentlest of the therapy cards. |
+| 25 | `pre-school-songs` | 15 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | Traditional rhymes, but the weakest of the pre-school trio: same repertoire the Super Simple cards already cover, different recordings. |
+| 26 | `doggyland` | 17 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Short, repetitive, affirmations and social scripts. Busier beats than Raffi. |
+| 27 | `sesame-elmo` | 10 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Elmo's World songs, all official, action-based — but Elmo talks fast, so the words blur together. |
+| 28 | `sesame-street` | 10 | ★★★★☆ | ★★★☆☆ | ★★★★☆ | GOOD | The ABC and number tracks do the language work, but the vocals run fast and overlap. Better once he is talking more. |
+| 29 | `blippi-vehicles` | 12 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | Concrete vocabulary (dig, lift, spray), but screen-show energy. |
+| 30 | `best-of-the-wiggles` | 20 | ★★★☆☆ | ★★★★☆ | ★★★★☆ | GOOD | Movement first. Use when he is restless, not to wind down. |
 | 31 | `moana-2` | 16 | ★★☆☆☆ | ★★★★☆ | ★★★★★ | FUN | 3-minute pop songs, dense lyrics. Great in the car. |
 | 32 | `frozen-2` | 11 | ★★☆☆☆ | ★★★★☆ | ★★★★★ | FUN | Same: exact songs, not speech material. |
 | 33 | `encanto` | 9 | ★★☆☆☆ | ★★★★☆ | ★★★★★ | FUN | Same. |
@@ -67,18 +69,20 @@ Last checked: **25 Nov 2026**.
 | 37 | `kidz-bop-party` | 10 | ★★☆☆☆ | ★☆☆☆☆ | ★★★★★ | LATER | Perfect links, but it is 5–8 material. Shelf it for two years. |
 
 > **Ranks 1–20 are the shelf.** If only twenty cards get made and printed, make
-> these: the four Cantonese cards and the speech-therapy set do the language
-> work, then the singable action and sequence cards (15–20) because doing a song
-> is how he practises the words before he can say them.
+> these. All seven Super Simple cards are inside it: they are the ones he asks
+> for by name, and with no screen in front of him that is ten times the listening
+> instead of ten times the watching.
 >
 > The top four are all Cantonese, because that is the language he is learning
 > first. If the household shifts to more English, move `sing-with-raffi` and
 > `super-simple-favourites` up.
 >
-> The two therapy cards just outside 20 (`speech-therapy-social`,
-> `speech-therapy-feelings`) are the ones that target **whole phrases** and
-> **emotion words** — the last things to arrive, so they belong on the second
-> shelf even though they are CORE.
+> Four CORE therapy cards sit just outside, at 21–24. `speech-therapy-routines`
+> repeats what the Cantonese routines card already does in his home language;
+> `speech-therapy-english` is a survey of the cards above it; `social` and
+> `feelings` target whole phrases and emotion words, which are the last things to
+> arrive. They are still the second-wave cards — put them on the shelf when he
+> starts joining words.
 
 ## Cards checked and NOT built
 
