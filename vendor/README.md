@@ -1,6 +1,6 @@
 # Vendor files — 54 × 85.5 mm
 
-Two complete sets, 37 cards each. Send the one your printer asks for.
+Two complete sets, 50 cards each. Send the one your printer asks for.
 
 | Folder | Size | Bleed | Use when |
 |---|---|---|---|
@@ -16,9 +16,13 @@ playlist folders.
 
 ## Just the top 20
 
-`yoto-labels-top20-54x85.5.zip` — the 20 cards on the shelf, one flat zip, same
-54 × 85.5 mm trim files, named `01-…` to `20-…` in shelf order so the printer
-returns them in the order they are used.
+`yoto-labels-top20-54x85.5.zip` — the first twenty in `RANKING.md`, one flat
+zip, same 54 × 85.5 mm trim files, named `01-…` to `20-…` in rank order so the
+printer returns them in the order they are introduced.
+
+Ranking is now ordered for him rather than for a print run, so this set is the
+first twenty he should have: the whole Cantonese block (1–16) plus the four
+English therapy cards he can use straight away (17–20).
 
 
 ## Ask the vendor these three questions
