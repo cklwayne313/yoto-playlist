@@ -4,7 +4,7 @@
 The four dinosaurs were too few for a card on their own, and she has only those
 four — so this card widens to the animals around them: pandas, a lion, the forest
 and the sea.
-**Cover:** `cover.jpg` — a painted scene, titled **動物朋友**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene, titled **動物朋友**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 9 · **Runtime:** 21:15 · **Status:** verified
 
 ## What it is

@@ -1,7 +1,7 @@
 # 社區英雄 — Miss Ka Foo songs
 
 **Inspired by:** the 嘉芙姐姐 playlist in the screenshots you sent.
-**Cover:** `cover.jpg` — a painted scene, titled **社區英雄**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene, titled **社區英雄**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 7 · **Runtime:** 16:20 · **Status:** verified
 
 ## What it is
