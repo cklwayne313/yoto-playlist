@@ -269,6 +269,39 @@ def page_shell(title, body, rel="", extra=""):
 """
 
 
+
+def build_sheet(ranking):
+    """One image with every cover, in rank order, for reviewing the set at a glance."""
+    from PIL import ImageDraw, ImageFont
+    font_path = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc#2"
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc", 15, index=2)
+    except Exception:
+        font = ImageFont.load_default()
+
+    cols, tw, th, pad, label_h = 6, 190, 301, 12, 26
+    rows = (len(ranking) + cols - 1) // cols
+    W = pad + cols * (tw + pad)
+    H = pad + rows * (th + label_h + pad)
+    sheet = Image.new("RGB", (W, H), (250, 248, 242))
+    draw = ImageDraw.Draw(sheet)
+    for i, r in enumerate(ranking):
+        folder = r["folder"]
+        src = os.path.join(ROOT, "playlists", folder, "cover.jpg")
+        if not os.path.exists(src):
+            continue
+        im = Image.open(src).convert("RGB").resize((tw, th), Image.LANCZOS)
+        x = pad + (i % cols) * (tw + pad)
+        y = pad + (i // cols) * (th + label_h + pad)
+        sheet.paste(im, (x, y))
+        label, _ = series_of(folder)
+        text = f"{r['rank']}. {label}"
+        draw.text((x, y + th + 4), text, fill=(70, 84, 94), font=font)
+    out = os.path.join(DOCS, "covers-sheet.jpg")
+    sheet.save(out, quality=86, optimize=True)
+    return out
+
+
 def main():
     os.makedirs(DOCS, exist_ok=True)
     os.makedirs(os.path.join(DOCS, "pages"), exist_ok=True)
@@ -355,6 +388,7 @@ def main():
 
     index_body = f"""
 <p class="sub">{len(ranking)} playlists · {total_songs} songs · {hhmm(total_min)} — ranked for a 2-year-old with a speech delay, speech value first, then age fit.</p>
+<p class="sub"><a href="covers-sheet.jpg">See every cover at a glance →</a></p>
 <div class="filters">
   <input class="search" id="q" placeholder="Search by name…" aria-label="Search playlists">
   <div class="chips" data-group="verdict">
@@ -448,7 +482,9 @@ apply();
         with open(os.path.join(DOCS, name), "w", encoding="utf-8") as fh:
             fh.write(page_shell(label, body))
 
+    sheet_path = build_sheet(ranking)
     print(f"built {len(folders)} playlist pages + index in {DOCS}")
+    print(f"cover sheet -> {sheet_path}")
 
 
 if __name__ == "__main__":
