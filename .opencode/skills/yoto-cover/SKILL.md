@@ -26,9 +26,9 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Mark | `HimHim`, centred above the title, 38 px tall, in the house two-tone: ink `#26323A` + coral `#C9552F`; cream `#FBF3DE` + coral on a dark card |
 | Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second, tight leading (~0.03 em between lines). Sized to the band between the mark and the character, never overlapping either |
 | Background | a simple painted scene, generated per card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
-| Character top | **40% of card height**, the same on every card — that is what stops one card looking emptier than the next. Cut-out sat on the bottom edge, body running off it |
-| Character scale, painted-into-scene cards | **45–55% of card height**: head or hat top just under the title band (**~40% down**), feet/contact at **~90%**. The figure must bridge title and floor — a character sitting at 70–85% leaves a dead band of empty wall in the middle and the card looks bottom-heavy. Say "head at about 40% down, feet at about 90%, filling the middle of the card" in the prompt. "Small in the frame" produces a speck; "a third of the height" still leaves a gap |
-| Props | one scene idea per card, painted into the background. Not a collage of objects around the character |
+| Character top | **just under the title**, not at a fixed percentage. The title ink is centred between the mark and the character, so the gap below the mark and the gap above the head are equal. One CJK line puts the head at **~33%**; two Latin lines at **~35%** — the head follows the title, so every card has the same two gaps however tall the type is |
+| Character scale, painted-into-scene cards | **60–65% of card height**: head or hat top under the title, feet/contact at the bottom edge, body running off it. A character whose head sits at 45–55% leaves a dead band of empty wall under the title and the card looks bottom-heavy. Say "head just below the title, feet at the bottom edge, filling the frame" in the prompt |
+| Props | one scene idea per card, painted into the background. Not a collage of objects around the character. Bubbles, bunting and other scene props may fill the title-to-character space on purpose (see `speech-therapy-cantonese`) |
 | Shadow | none, or a barely visible one |
 
 Read several real cards, not one. `happy-songs` is the plainest card in the
@@ -123,8 +123,26 @@ CJK titles need a font with the glyphs — Baloo 2 has none:
 --font "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc#2" --jitter 0.35
 ```
 
-Rebuild all nine at once with `scripts/rebuild_custom_covers.sh`, then
-`build_print.py` and `build_vendor.py`.
+Rebuild every custom cover at once with `scripts/rebuild_custom_covers.sh`,
+then `build_print.py` and `build_vendor.py`.
+
+**When the character is painted into the plate, check the gap before typesetting.**
+Measure where the top of the head/hat/ears sits as a fraction of the card. If it
+is lower than the title needs (one CJK line wants ~33%, two Latin lines ~35%),
+do not leave the dead band and do not float the title: raise the character by
+cropping the empty top and letting the bottom run off the card.
+
+```bash
+python3 scripts/recompose_plate.py \
+  --plate assets/<card>-plate.jpg --head 0.47 --target 0.335 \
+  --out assets/<card>-plate.jpg
+```
+
+`--head` is the measured head top, before the crop. The script keeps the width,
+crops the top, and scales by height, so the head lands exactly on `--target`;
+the feet move to the bottom edge. Use it only on a plate whose gap is empty
+wall or sky — if bubbles, bunting or props are filling the space, leave the
+composition alone.
 
 **Character extraction.** Cut the character onto flat chroma green (`#00B140`)
 in the image model, then key it with `scripts/cutout.py`. `rembg` works only
