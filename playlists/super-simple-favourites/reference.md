@@ -2,10 +2,7 @@
 
 **Inspired by:** your own YouTube Music list (6 tracks) plus the
 [Super Simple Songs Collection](https://us.yotoplay.com/products/super-simple-songs-collection)
-**Cover:** `cover.jpg` — Super Simple's own Noodle artwork, taken from their
-characters page, with the sunburst background replaced by flat cream and a
-hand-lettered title added in the same blue as the Yoto cards. The character is
-their real art, not a redraw. Not official Yoto artwork.
+**Cover:** `cover.jpg` — Super Simple's Noodle character on flat cream, titled **MY FAVOURITES** with the HimHim mark above it. Official character art; the lettering is ours. Not a Yoto card.
 **Tracks:** 16 · **Runtime:** 37:58 · **Status:** verified
 
 ## Track list

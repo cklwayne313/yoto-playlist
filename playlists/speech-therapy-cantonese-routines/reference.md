@@ -6,9 +6,7 @@
 and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS_Language_0-6_TC_2203.pdf)
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass)
-**Cover:** `cover.jpg` — the Roundabouts penguin in his red beanie, from Super Simple's official
-banner art, painted navy night sky with stars and a moon, and a cream Chinese title. Not a Yoto
-card.
+**Cover:** `cover.jpg` — the Roundabouts penguin in his red beanie under a painted navy night sky, titled **日常歌** in cream. Official character art; our background and lettering. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 21:15 · **Status:** verified
 
 ## 點用（how to use it）

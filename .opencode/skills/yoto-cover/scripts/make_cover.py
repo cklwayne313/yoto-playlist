@@ -28,7 +28,11 @@ def hex_rgb(value):
 
 
 def load_font(path, size):
-    font = ImageFont.truetype(path, size)
+    index = 0
+    if "#" in path:
+        path, idx = path.rsplit("#", 1)
+        index = int(idx)
+    font = ImageFont.truetype(path, size, index=index)
     try:
         font.set_variation_by_name("ExtraBold")
     except Exception:
@@ -37,7 +41,7 @@ def load_font(path, size):
 
 
 def ensure_font(path):
-    if path and os.path.exists(path):
+    if path and os.path.exists(path.split("#")[0]):
         return path
     if os.path.exists(FONT_CACHE):
         return FONT_CACHE

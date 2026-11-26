@@ -6,8 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — the pink Rhymington Square monster from Super Simple's official art,
-painted pink party wall with bunting and a magenta title. Not a Yoto card.
+**Cover:** `cover.jpg` — the pink Rhymington Square monster against a painted party wall with bunting, titled **SOCIAL SONGS**. Official character art; our background and lettering. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 21:48 · **Status:** verified
 
 ## How to use it

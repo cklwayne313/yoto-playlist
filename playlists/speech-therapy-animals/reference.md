@@ -6,9 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — Super Simple's Roundabouts pig, taken from their official character banner,
-painted pink meadow background and a rose title. This is not a Yoto card and the
-character is Super Simple's art, not ours.
+**Cover:** `cover.jpg` — Super Simple's Roundabouts pig on a painted pink meadow, titled **ANIMAL SONGS** with the HimHim mark above it. The character is Super Simple's art; the painted background and the lettering are ours. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 28:02 · **Status:** verified
 
 ## How to use it

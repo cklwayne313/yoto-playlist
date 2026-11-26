@@ -66,27 +66,42 @@ the Make Your Own card, and it looks the same on the player.
 - `speech-therapy-cantonese` uses Yoto's *Animal Sounds* art; animal sounds are
   the first thing a late talker imitates.
 - The eight target cards use **eight different Super Simple characters**, one per
-  card, so no two covers repeat: the Roundabouts pig (animals), the yellow
-  Noodle & Pals friend (actions), a Bumble Num (food), Carl's Rescue Crew
-  (routines), a Rhymington Square monster (social), Lulu the Owl (feelings), the
-  Peekaboo cat (Cantonese animals) and a Roundabouts penguin (Cantonese
-  routines). Each sits in its own painted scene — meadow, sunburst, kitchen,
-  morning sky, party wall, sand rings, garden, night sky — with its own title
-  colour, so no two read as the same template. The characters are Super
-  Simple's; the backgrounds were painted for these cards.
-- `super-simple-favourites` has a custom cover: Super Simple's own Noodle
-  artwork, cream background, hand-lettered title.
-- Every custom cover carries the small hand-lettered **`HimHim`** mark, top-left,
-  in the same two colours every time — ink + coral, cream + coral on the dark
-  card. It's the family's label, never a publisher logo, so the nine custom
-  cards read as one set on the shelf without pretending to be official cards.
-  Stamped with `.opencode/skills/yoto-cover/scripts/add_brand.py`.
+  card, so no two covers repeat: the Roundabouts pig (*Animal Songs*), the yellow
+  Noodle & Pals friend (*Action Songs*), a Bumble Num (*Food Songs*), Carl's
+  Rescue Crew (*Routine Songs*), a Rhymington Square monster (*Social Songs*),
+  Lulu the Owl (*Feeling Songs*), the Peekaboo cat (動物歌) and a Roundabouts
+  penguin (日常歌). Each sits in its own painted scene — meadow, sunburst,
+  kitchen, morning sky, party wall, sand rings, garden, night sky. The
+  characters are Super Simple's; the backgrounds and lettering are ours.
+- `super-simple-favourites` has a custom cover: Super Simple's Noodle character
+  on flat cream, titled *My Favourites*.
+- Every custom cover carries the small hand-lettered **`HimHim`** mark, centred
+  above the title in the same two colours every time — ink + coral, cream +
+  coral on the dark card. It's the family's label, never a publisher logo, so
+  the nine custom cards read as one set on the shelf without pretending to be
+  official cards.
 
-Custom covers are built with the **`yoto-cover` skill** —
-`.opencode/skills/yoto-cover/` holds the house style (1200×1902, cream
-`#FFFFE8`, Yoto blue `#0392D4`, one character, no scenery) and
-`scripts/make_cover.py`, which keys the art, composes the card and sets the
-title. Ask for a cover and it runs automatically.
+### The cover system
+
+Custom covers are built from two stored assets per card, so a re-typeset never
+depends on temp files:
+
+```
+.opencode/skills/yoto-cover/assets/<card>-plate.jpg      painted background, no character
+.opencode/skills/yoto-cover/assets/<card>-character.png  official art, background removed
+```
+
+`scripts/build_cover.py` lays them out, `scripts/cutout.py` keys a character off
+chroma green, and one command rebuilds all nine:
+
+```bash
+bash .opencode/skills/yoto-cover/scripts/rebuild_custom_covers.sh
+python3 .opencode/print/build_print.py && python3 .opencode/print/build_vendor.py
+```
+
+Layout rules: 7% side margins; the mark in its own band at the top; the title
+centred under it, two lines, `SONGS` on the second line; the block sized to the
+space above the character, never touching it.
 
 ## Adding a playlist
 

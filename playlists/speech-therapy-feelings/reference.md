@@ -6,8 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — Lulu the Owl from Super Simple's Star & Owl art, background replaced
-with a painted sand background, soft concentric rings and a brown title. Not a Yoto card.
+**Cover:** `cover.jpg` — Lulu the Owl against a painted sand wall with soft concentric rings, titled **FEELING SONGS**. Official character art; our background and lettering. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 24:00 · **Status:** verified
 
 ## How to use it

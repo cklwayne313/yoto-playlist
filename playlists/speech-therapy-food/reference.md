@@ -6,8 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — one of The Bumble Nums (the teal chef) from Super Simple's official art,
-painted mint kitchen with a checkered tablecloth and a teal title. Not a Yoto card.
+**Cover:** `cover.jpg` — the teal Bumble Num chef on a painted mint kitchen with a checked tablecloth, titled **FOOD SONGS**. Official character art; our background and lettering. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 23:56 · **Status:** verified
 
 ## How to use it

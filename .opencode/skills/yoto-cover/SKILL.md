@@ -21,11 +21,13 @@ YouTube list, or a language/theme Yoto doesn't sell.
 
 | Property | Value |
 |---|---|
-| Canvas | 1200 × 1902 (2:3 portrait) |
-| Background | a simple painted scene, generated for that card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
-| Title | chunky rounded, hand-lettered (each glyph slightly rotated, scaled and dropped), fine grain and a soft shadow, top ~9–34%. Blue `#0392D4` on cream is the default; vary the colour with the background |
-| Character | official brand art, chest-up, top of head ~37% down, body runs off the bottom edge |
-| Props | one scene idea per card, painted in the background. Not a collage of objects around the character |
+| Canvas | **638 × 1011 px at 300 DPI** = 54 × 85.6 mm, the card itself. One file per card: app upload and print sheet use the same image |
+| Side margin | **7%** of width — a title never runs into the card edge |
+| Mark | `HimHim`, centred above the title, 38 px tall, in the house two-tone: ink `#26323A` + coral `#C9552F`; cream `#FBF3DE` + coral on a dark card |
+| Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second (animal songs, action songs…). Fitted to the space above the character, never overlapping it |
+| Background | a simple painted scene, generated per card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
+| Character | official brand art, cut out and sat on the bottom edge, body running off it |
+| Props | one scene idea per card, painted into the background. Not a collage of objects around the character |
 | Shadow | none, or a barely visible one |
 
 Read several real cards, not one. `happy-songs` is the plainest card in the
@@ -91,37 +93,43 @@ or sit the character on a cream panel so the edge is invisible.
 
 ### 3. Compose
 
-```bash
-python3 scripts/make_cover.py \
-  --art /tmp/opencode/noodle-cream.jpg \
-  --background /tmp/opencode/bg-meadow.jpg \
-  --title "MY" "FAVOURITES" \
-  --out playlists/<name>/cover.jpg
+Each card keeps its two source assets beside the skill, so a re-typeset never
+depends on temp files:
+
+```
+assets/<card>-plate.jpg       painted background, no character, no text
+assets/<card>-character.png   official art, transparent, cropped to the character
 ```
 
-Useful flags: `--char-top 700` (head position), `--char-width 1120`,
-`--bg '#FFFFE8'`, `--blue '#0392D4'`, `--no-grain`, `--key auto|none`,
-`--key-color '#RRGGBB'`, `--font path.ttf`.
+```bash
+python3 scripts/build_cover.py \
+  --bg   assets/<card>-plate.jpg \
+  --char assets/<card>-character.png \
+  --char-width 0.84 \
+  --title ANIMAL SONGS \
+  --colour '#A63352' \
+  --max-size 128 \
+  --out playlists/<card>/cover.jpg
+```
 
-Title control: `--jitter 1.0` sets how hand-drawn the lettering is (`0` gives
-clean vector type), `--seed 7` re-rolls it. The lettering is deterministic for a
-given seed, so a recorded command reproduces the file byte-for-byte.
+Useful flags: `--char-width` (fraction of card width), `--char-bottom`,
+`--char-x`, `--max-size` (cap the type size so nine cards keep one scale),
+`--no-mark`, `--jitter` (1.0 = hand-drawn, 0.35 for a CJK face).
 
-Variation: a set of cards with identical cream and blue reads as one template.
-Give each card its own `--bg`, `--blue` (title) and one `--motif` (`circle`,
-`hill` or `dots`) with `--accent`, ideally sampled from the character. Real Yoto
-cards each have their own scene; two cards in the same series should not look
-interchangeable. `--title-scale 0.9` lightens a long word.
+CJK titles need a font with the glyphs — Baloo 2 has none:
 
-Art control: `--anchor-bottom` sits the character on the card's bottom edge.
-Use it whenever the source art is cropped at the bottom — otherwise the cut
-floats mid-card and looks like a mistake. `--fade-bottom N` is a softer fallback
-but turns black characters grey, so prefer anchoring.
+```bash
+--font "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc#2" --jitter 0.35
+```
 
-The script keys the flat background, erodes the matte to kill halos, pastes the
-character on a grained cream canvas, and auto-sizes the title into the space
-above it. It downloads Baloo 2 ExtraBold to `~/.cache/yoto-cover/` on first run
-if no font is supplied.
+Rebuild all nine at once with `scripts/rebuild_custom_covers.sh`, then
+`build_print.py` and `build_vendor.py`.
+
+**Character extraction.** Cut the character onto flat chroma green (`#00B140`)
+in the image model, then key it with `scripts/cutout.py`. `rembg` works only
+where the character contrasts with its background: it eats cream characters on
+pale skies and drags in props (moons, rings), so check every cut-out on magenta
+before using it.
 
 ### 4. Check it
 
@@ -132,34 +140,19 @@ if no font is supplied.
 - Look for a pale halo or green fringe at the character edge — increase
   `--erode` (default 7) if you see one.
 
-### 5. Stamp the house mark
+### 5. The house mark
 
-Every custom cover carries the small `HimHim` wordmark, top-left, so the nine
-custom cards read as one shelf set a child can pick out. It is the family's own
-label, not a publisher logo, and it only ever goes on cards we made.
+`build_cover.py` draws the `HimHim` mark itself, centred above the title, in
+one fixed two-tone everywhere: `Him` in ink `#26323A`, `Him` in coral `#C9552F`,
+and cream instead of ink on a dark card. Same word, lettering, size (38 px) and
+position on every custom cover — that sameness is the brand.
 
-```bash
-python3 .opencode/skills/yoto-cover/scripts/add_brand.py playlists/<name>/cover.jpg
-python3 .opencode/skills/yoto-cover/scripts/add_brand.py --all
-```
+The card's own title colour is deliberately **not** used: nine differently
+coloured marks read as decoration, not a label. Never put a publisher's logo on
+a card; `HimHim` is the family's mark, on cards we made only.
 
-- Hand-lettered in the same face as the title, about a quarter of its height,
-  in the house two-tone: `Him` in ink `#26323A`, `Him` in coral `#C9552F`. On a
-  dark card the ink becomes cream `#FBF3DE` — a logo reversal, not a colour
-  change. The card's own title colour is deliberately **not** used: nine
-  different-coloured marks read as decoration, not a brand.
-- `--style two-tone` is the default; `ink`, `trio`, `rainbow` and `title` exist
-  for mock-ups but are not the house style.
-- Fixed position and size on every card: `--size-factor 0.064`, x at 5.8% of
-  width, y at 2% of height. Sameness is what makes it read as a mark rather than
-  decoration.
-- Stamp it on the finished 638×1011 file, after the title, so it is drawn at
-  final size. It stamps in place: to adjust one, restore the plain cover
-  (`git checkout -- playlists/<name>/cover.jpg`) and run it again.
-- Check at 150 px wide — `HimHim` must still be readable. If not, raise
-  `--size-factor` in steps of 0.004.
-- Never on official Yoto cards. That art is the publisher's, and a mark on it
-  would imply an endorsement.
+`scripts/add_brand.py` still exists for stamping the mark onto an already
+finished image, but new covers get it from `build_cover.py`.
 
 ### 6. Record it
 
@@ -168,34 +161,35 @@ official artwork** — which art was used, that the background was replaced, and
 that the title is a plain font, not the brand logo. Never imply a Yoto or brand
 endorsement.
 
-Keep the build reproducible. Save the flattened art beside the cover as
-`cover-source.jpg` and copy the exact command into a `## Cover build` section:
+Keep the build reproducible. The plate and the character live in
+`assets/<card>-plate.jpg` and `assets/<card>-character.png`, so a re-typeset
+does not depend on temp files:
 
 ~~~~markdown
 ## Cover build
 
-- **Character art:** <publisher> — <page or file URL>
-- **Background:** replaced with flat cream; drawing untouched. Flattened file
-  kept as `cover-source.jpg`.
-- **Composed** with the `yoto-cover` skill:
+- **Character art:** <publisher> — <page or file URL>. Official art, background
+  removed; kept as `.opencode/skills/yoto-cover/assets/<name>-character.png`.
+- **Background:** painted for this card, no character and no text; kept as
+  `.opencode/skills/yoto-cover/assets/<name>-plate.jpg`.
+- **Composed** with the `yoto-cover` skill at **638 × 1011 px, 300 DPI**
+  (54 × 85.6 mm) — one image per card, used for the app upload and the print
+  sheet:
 
 ```bash
-python3 .opencode/skills/yoto-cover/scripts/make_cover.py \
-  --art playlists/<name>/cover-source.jpg \
-  --title MY FAVOURITES \
+python3 .opencode/skills/yoto-cover/scripts/build_cover.py \
+  --bg .opencode/skills/yoto-cover/assets/<name>-plate.jpg \
+  --char .opencode/skills/yoto-cover/assets/<name>-character.png \
+  --char-width 0.84 --max-size 128 \
+  --title ANIMAL SONGS --colour '#A63352' \
   --out playlists/<name>/cover.jpg
 ```
 
-- Composed at 1200×1902, then normalised to the card file: **638×1011 px at
-  300 DPI** (54×85.6 mm) with
-  `python3 .opencode/print/build_print.py --normalise`. One image per card —
-  the app upload and the print sheet use the same file.
 - Not official Yoto art. Personal card only.
 ~~~~
 
-If you changed any default (`--char-top`, `--char-width`, `--erode`), put the
-real values in that block — a recorded command that no longer reproduces the
-image is worse than none.
+Put the real `--char-width` and `--max-size` in that block — a recorded command
+that no longer reproduces the image is worse than none.
 
 ## Pitfalls
 
