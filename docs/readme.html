@@ -267,27 +267,34 @@ the Make Your Own card, and it looks the same on the player.</p>
 <li><code>speech-therapy-cantonese</code> uses Yoto's <em>Animal Sounds</em> art; animal sounds are
   the first thing a late talker imitates.</li>
 <li>The eight target cards use <strong>eight different Super Simple characters</strong>, one per
-  card, so no two covers repeat: the Roundabouts pig (animals), the yellow
-  Noodle &amp; Pals friend (actions), a Bumble Num (food), Carl's Rescue Crew
-  (routines), a Rhymington Square monster (social), Lulu the Owl (feelings), the
-  Peekaboo cat (Cantonese animals) and a Roundabouts penguin (Cantonese
-  routines). Each sits in its own painted scene — meadow, sunburst, kitchen,
-  morning sky, party wall, sand rings, garden, night sky — with its own title
-  colour, so no two read as the same template. The characters are Super
-  Simple's; the backgrounds were painted for these cards.</li>
-<li><code>super-simple-favourites</code> has a custom cover: Super Simple's own Noodle
-  artwork, cream background, hand-lettered title.</li>
-<li>Every custom cover carries the small hand-lettered <strong><code>HimHim</code></strong> mark, top-left,
-  in the same two colours every time — ink + coral, cream + coral on the dark
-  card. It's the family's label, never a publisher logo, so the nine custom
-  cards read as one set on the shelf without pretending to be official cards.
-  Stamped with <code>.opencode/skills/yoto-cover/scripts/add_brand.py</code>.</li>
+  card, so no two covers repeat: the Roundabouts pig (<em>Animal Songs</em>), the yellow
+  Noodle &amp; Pals friend (<em>Action Songs</em>), a Bumble Num (<em>Food Songs</em>), Carl's
+  Rescue Crew (<em>Routine Songs</em>), a Rhymington Square monster (<em>Social Songs</em>),
+  Lulu the Owl (<em>Feeling Songs</em>), the Peekaboo cat (動物歌) and a Roundabouts
+  penguin (日常歌). Each sits in its own painted scene — meadow, sunburst,
+  kitchen, morning sky, party wall, sand rings, garden, night sky. The
+  characters are Super Simple's; the backgrounds and lettering are ours.</li>
+<li><code>super-simple-favourites</code> has a custom cover: Super Simple's Noodle character
+  on flat cream, titled <em>My Favourites</em>.</li>
+<li>Every custom cover carries the small hand-lettered <strong><code>HimHim</code></strong> mark, centred
+  above the title in the same two colours every time — ink + coral, cream +
+  coral on the dark card. It's the family's label, never a publisher logo, so
+  the nine custom cards read as one set on the shelf without pretending to be
+  official cards.</li>
 </ul>
-<p>Custom covers are built with the <strong><code>yoto-cover</code> skill</strong> —
-<code>.opencode/skills/yoto-cover/</code> holds the house style (1200×1902, cream
-<code>#FFFFE8</code>, Yoto blue <code>#0392D4</code>, one character, no scenery) and
-<code>scripts/make_cover.py</code>, which keys the art, composes the card and sets the
-title. Ask for a cover and it runs automatically.</p>
+<h3>The cover system</h3>
+<p>Custom covers are built from two stored assets per card, so a re-typeset never
+depends on temp files:</p>
+<p><code>.opencode/skills/yoto-cover/assets/&lt;card&gt;-plate.jpg      painted background, no character
+.opencode/skills/yoto-cover/assets/&lt;card&gt;-character.png  official art, background removed</code></p>
+<p><code>scripts/build_cover.py</code> lays them out, <code>scripts/cutout.py</code> keys a character off
+chroma green, and one command rebuilds all nine:</p>
+<p><code>bash
+bash .opencode/skills/yoto-cover/scripts/rebuild_custom_covers.sh
+python3 .opencode/print/build_print.py &amp;&amp; python3 .opencode/print/build_vendor.py</code></p>
+<p>Layout rules: 7% side margins; the mark in its own band at the top; the title
+centred under it, two lines, <code>SONGS</code> on the second line; the block sized to the
+space above the character, never touching it.</p>
 <h2>Adding a playlist</h2>
 <p>Send a YouTube link — a playlist, a single video, or a card you've seen. I'll add
 <code>playlists/&lt;name&gt;/reference.md</code> with the tracks pulled out, in order, each with

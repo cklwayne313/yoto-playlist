@@ -26,6 +26,7 @@ build() { # card  colour  char-width  max-size  [--font CJK]  title...
     --bg "$A/$card-plate.jpg" \
     --char "$A/$card-character.png" \
     --char-width "$width" \
+    --char-top "${CHAR_TOP:-0.40}" \
     --max-size "$cap" \
     "${font[@]}" \
     --title "$@" \

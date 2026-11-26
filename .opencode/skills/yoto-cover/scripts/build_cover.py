@@ -45,9 +45,9 @@ def hand(layer, seed, size):
     arr[:, :, :3] = np.where(visible, np.clip(arr[:, :, :3] + noise, 0, 255), arr[:, :, :3])
     layer = Image.fromarray(arr.astype(np.uint8))
 
-    pad = max(4, int(size * 0.24))
-    offset = max(1, int(size * 0.05))
-    blur = max(1, int(size * 0.05))
+    pad = max(2, int(size * 0.06))
+    offset = max(1, int(size * 0.03))
+    blur = max(1, int(size * 0.03))
     base = Image.new("RGBA", (layer.width + pad * 2, layer.height + pad * 2), (0, 0, 0, 0))
     mask = layer.split()[3].point(lambda v: int(v * 0.23))
     shadow = Image.new("RGBA", base.size, (0, 0, 0, 0))
@@ -72,10 +72,16 @@ def character_top(char):
     return int(rows[0]) if len(rows) else int(H * .5)
 
 
-def place_char(char, width_f, bottom_f, x_f=0.0):
+def place_char(char, width_f, bottom_f, x_f=0.0, top_f=None):
     """Scale the cut-out to a fraction of the card width and sit it on the
-    bottom edge, so a cropped body never shows a cut line."""
-    w = max(40, int(W * width_f))
+    bottom edge, so a cropped body never shows a cut line. Given `top_f`, size
+    it instead so its top lands at that fraction of the card height — that is
+    what keeps every card's character at the same eye line."""
+    if top_f is not None:
+        h = max(40, int(H * (1 - bottom_f - top_f)))
+        w = max(40, int(h * char.width / char.height))
+    else:
+        w = max(40, int(W * width_f))
     h = max(40, int(char.height * w / char.width))
     char = char.resize((w, h), Image.LANCZOS)
     x = int((W - w) / 2 + x_f * W)
@@ -103,11 +109,14 @@ def main():
                     help="gap under the character, as a fraction of card height")
     ap.add_argument("--char-x", type=float, default=0.0,
                     help="horizontal nudge, as a fraction of card width")
+    ap.add_argument("--char-top", type=float, default=None,
+                    help="place the top of the character at this fraction of the card height")
     args = ap.parse_args()
 
     canvas = plate(args.bg).convert("RGBA")
     char, char_x, char_y = place_char(Image.open(args.char).convert("RGBA"),
-                                      args.char_width, args.char_bottom, args.char_x)
+                                      args.char_width, args.char_bottom, args.char_x,
+                                      args.char_top)
 
     colour = tuple(int(args.colour.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
     font_path = ensure_font(args.font)
@@ -131,7 +140,7 @@ def main():
     size = args.max_size or 220
     while size > 24:
         lines = [render(t, size) for t in args.title]
-        gap = int(size * 0.12)
+        gap = int(size * 0.03)
         block_w = max(l.width for l in lines)
         total = sum(l.height for l in lines) + gap * (len(lines) - 1)
         if block_w <= max_w and total <= avail:
@@ -139,7 +148,7 @@ def main():
         size = int(size * 0.94)
 
     lines = [render(t, size) for t in args.title]
-    gap = int(size * 0.12)
+    gap = int(size * 0.03)
     block_w = max([l.width for l in lines] + ([mark.width] if mark else [0]))
     left = int((W - block_w) / 2)
 

@@ -24,9 +24,9 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Canvas | **638 × 1011 px at 300 DPI** = 54 × 85.6 mm, the card itself. One file per card: app upload and print sheet use the same image |
 | Side margin | **7%** of width — a title never runs into the card edge |
 | Mark | `HimHim`, centred above the title, 38 px tall, in the house two-tone: ink `#26323A` + coral `#C9552F`; cream `#FBF3DE` + coral on a dark card |
-| Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second (animal songs, action songs…). Fitted to the space above the character, never overlapping it |
+| Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second, tight leading (~0.03 em between lines). Sized to the band between the mark and the character, never overlapping either |
 | Background | a simple painted scene, generated per card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
-| Character | official brand art, cut out and sat on the bottom edge, body running off it |
+| Character top | **40% of card height**, the same on every card — that is what stops one card looking emptier than the next. Cut-out sat on the bottom edge, body running off it |
 | Props | one scene idea per card, painted into the background. Not a collage of objects around the character |
 | Shadow | none, or a barely visible one |
 
