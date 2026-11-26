@@ -22,6 +22,7 @@ rejected.
 | `cantonese-happy-songs` | 11 | 26:23 | 開心歌 — 志安歌歌 HAPPY! album |
 | `cantonese-play-songs` | 14 | 36:39 | 遊戲歌 — 志安歌歌 Go! Go! Go! album |
 | `cantonese-singles` | 18 | 41:55 | 精選歌 — 志安歌歌 singles and festival songs |
+| `cantonese-transport-songs` | 16 | 34:13 | 交通工具 — 嘉芙姐姐 transport songs |
 | `cantonese-faith-songs` | 7 | 31:51 | 跟隨歌 — 志安歌歌 FOLLOW album |
 | `cantonese-christmas-songs` | 11 | 31:49 | 聖誕歌 — 志安歌歌 小禮物 album |
 | `pre-school-songs` | 15 | 33:11 | Old MacDonald card, recordings differ |

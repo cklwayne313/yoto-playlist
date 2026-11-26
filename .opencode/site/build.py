@@ -129,6 +129,7 @@ CUSTOM_COVERS = {
     "super-simple-favourites",
     "cantonese-life-songs",
     "cantonese-singles",
+    "cantonese-transport-songs",
     "cantonese-happy-songs",
     "cantonese-play-songs",
     "cantonese-faith-songs",
