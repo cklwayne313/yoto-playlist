@@ -46,6 +46,7 @@ nav a:first-child{margin-left:0}
 .chip.active{background:var(--blue);border-color:var(--blue);color:#fff}
 .chip-group-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-right:2px}
 .count{font-size:13px;color:var(--muted)}
+.stars2{font-size:12px;color:var(--muted);margin-top:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:18px}
 .card{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;
   padding:12px;text-decoration:none;color:inherit;position:relative}
@@ -143,6 +144,84 @@ CUSTOM_COVERS = {
 }
 
 
+
+# folder -> (label shown on the card, filter group)
+SERIES = {
+    "happy-songs": ("Super Simple", "super-simple"),
+    "bedtime-songs": ("Super Simple", "super-simple"),
+    "silly-songs": ("Super Simple", "super-simple"),
+    "underwater-songs": ("Super Simple", "super-simple"),
+    "farm-songs": ("Super Simple", "super-simple"),
+    "super-simple-christmas": ("Super Simple", "super-simple"),
+    "super-simple-favourites": ("Super Simple", "super-simple"),
+
+    "moana": ("Disney", "disney"),
+    "moana-2": ("Disney", "disney"),
+    "frozen-2": ("Disney", "disney"),
+    "encanto": ("Disney", "disney"),
+    "tangled": ("Disney", "disney"),
+    "lion-king": ("Disney", "disney"),
+
+    "sing-with-raffi": ("Raffi", "other"),
+    "sing-and-dance-with-raffi": ("Raffi", "other"),
+    "caspar-traditional": ("Caspar Babypants", "other"),
+    "caspar-singalong": ("Caspar Babypants", "other"),
+    "little-bo-peep": ("Yoto original", "other"),
+    "row-your-boat": ("Yoto original", "other"),
+    "pre-school-songs": ("Yoto original", "other"),
+    "sesame-street": ("Sesame Street", "other"),
+    "sesame-elmo": ("Sesame Street", "other"),
+    "best-of-the-wiggles": ("The Wiggles", "other"),
+    "doggyland": ("Doggyland", "other"),
+    "blippi-vehicles": ("Blippi", "other"),
+    "kidz-bop-party": ("Kidz Bop", "other"),
+    "cantonese-nursery-rhymes": ("Hong Kong", "other"),
+
+    "cantonese-transport-songs": ("嘉芙姐姐", "kafoo"),
+    "cantonese-community-songs": ("嘉芙姐姐", "kafoo"),
+    "cantonese-dinosaur-songs": ("嘉芙姐姐", "kafoo"),
+    "cantonese-concept-songs": ("嘉芙姐姐", "kafoo"),
+    "cantonese-movement-songs": ("嘉芙姐姐", "kafoo"),
+
+    "cantonese-life-songs": ("志安哥哥", "zeongogo"),
+    "cantonese-happy-songs": ("志安哥哥", "zeongogo"),
+    "cantonese-play-songs": ("志安哥哥", "zeongogo"),
+    "cantonese-faith-songs": ("志安哥哥", "zeongogo"),
+    "cantonese-christmas-songs": ("志安哥哥", "zeongogo"),
+    "cantonese-singles": ("志安哥哥", "zeongogo"),
+
+    "cantonese-rhymes-active": ("天晴童謠", "sunshine"),
+    "cantonese-rhymes-calm": ("天晴童謠", "sunshine"),
+
+    "speech-therapy-cantonese": ("言語治療", "therapy"),
+    "speech-therapy-cantonese-routines": ("言語治療", "therapy"),
+    "speech-therapy-cantonese-animals": ("言語治療", "therapy"),
+    "speech-therapy-english": ("Speech therapy", "therapy"),
+    "speech-therapy-actions": ("Speech therapy", "therapy"),
+    "speech-therapy-animals": ("Speech therapy", "therapy"),
+    "speech-therapy-food": ("Speech therapy", "therapy"),
+    "speech-therapy-routines": ("Speech therapy", "therapy"),
+    "speech-therapy-social": ("Speech therapy", "therapy"),
+    "speech-therapy-feelings": ("Speech therapy", "therapy"),
+}
+
+
+def series_of(folder):
+    return SERIES.get(folder, ("Other", "other"))
+
+
+def runtime_of(folder):
+    path = os.path.join(ROOT, "playlists", folder, "reference.md")
+    if not os.path.exists(path):
+        return ""
+    m = re.search(r"\*\*Runtime:\*\*\s*([0-9]+:[0-9]{2})", read(path))
+    return m.group(1) if m else ""
+
+
+def hhmm(total_minutes):
+    return f"{total_minutes // 60}h {total_minutes % 60:02d}m"
+
+
 def parse_ranking():
     text = read(os.path.join(ROOT, "RANKING.md"))
     rows = []
@@ -214,7 +293,11 @@ def main():
         rank = by_folder.get(folder)
         extra = ""
         if rank:
-            extra = f'<p class="meta">Rank {rank["rank"]} of {len(ranking)} · Tracks {rank["tracks"]} · Speech {rank["speech"]} · Age 2 {rank["age"]}</p>'
+            label, _ = series_of(folder)
+            rt = runtime_of(folder)
+            extra = (f'<p class="meta">Rank {rank["rank"]} of {len(ranking)} · {label} · '
+                     f'{rank["tracks"]} songs' + (f' · {rt}' if rt else '') +
+                     f' · Speech {rank["speech"]} · Age 2 {rank["age"]}</p>')
         cover = f'<img class="cover" src="../covers/{folder}.jpg" alt="{html.escape(pretty(folder))} cover">'
         content = f'<div class="page">{cover}<article>{body}</article></div>'
         out = page_shell(title_of(text, pretty(folder)), content, rel="../", extra=extra)
@@ -233,27 +316,36 @@ def main():
         page = os.path.join(ROOT, "playlists", folder, "reference.md")
         raw = title_of(read(page), pretty(folder)) if os.path.exists(page) else pretty(folder)
         name = display_title(raw)
-        kicker = ""
-        if raw.startswith("Speech therapy — "):
-            kicker = "Speech therapy"
-        elif raw.startswith("言語治療"):
-            kicker = "言語治療" 
+        label, group = series_of(folder)
+        kicker = label
         lang = "cantonese" if "cantonese" in folder else "english"
         cover = "custom" if folder in CUSTOM_COVERS else "official"
         speech = r["speech"].count("★")
-        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" data-verdict="{r['verdict']}" data-lang="{lang}" data-cover="{cover}" data-speech="{speech}" href="pages/{folder}.html">
+        rt = runtime_of(folder)
+        meta = f"{r['tracks']} songs" + (f" · {rt}" if rt else "")
+        cards.append(f"""<a class="card" data-name="{html.escape(name.lower())}" data-verdict="{r['verdict']}" data-lang="{lang}" data-cover="{cover}" data-speech="{speech}" data-series="{group}" href="pages/{folder}.html">
   <span class="rank">{r['rank']}</span>
   <img src="covers/{folder}.jpg" alt="" loading="lazy">
   <div class="body">
-    {f'<div class="kicker">{kicker}</div>' if kicker else ''}
+    <div class="kicker">{html.escape(kicker)}</div>
     <div class="name">{html.escape(name)}</div>
-    <div class="stars">Speech {r['speech']} · Age 2 {r['age']}<span class="pill {r['verdict']}">{r['verdict']}</span></div>
+    <div class="stars">{meta}<span class="pill {r['verdict']}">{r['verdict']}</span></div>
+    <div class="stars2">Speech {r['speech']} · Age 2 {r['age']}</div>
     <p class="why">{html.escape(r['why'])}</p>
   </div>
 </a>""")
 
+    total_songs = sum(int(r["tracks"]) for r in ranking)
+    total_min = 0
+    for r in ranking:
+        rt = runtime_of(r["folder"])
+        if not rt:
+            continue
+        parts = [int(x) for x in rt.split(":")]
+        total_min += parts[0] * 60 + parts[1] if len(parts) == 3 else parts[0]
+
     index_body = f"""
-<p class="sub">All {len(ranking)} playlists, ranked for a 2-year-old with a speech delay — speech value first, then age fit.</p>
+<p class="sub">{len(ranking)} playlists · {total_songs} songs · {hhmm(total_min)} — ranked for a 2-year-old with a speech delay, speech value first, then age fit.</p>
 <div class="filters">
   <input class="search" id="q" placeholder="Search by name…" aria-label="Search playlists">
   <div class="chips" data-group="verdict">
@@ -276,6 +368,17 @@ def main():
     <button class="chip" data-value="official">Official Yoto art</button>
     <button class="chip" data-value="custom">Custom art</button>
   </div>
+  <div class="chips" data-group="series">
+    <span class="chip-group-label">Series</span>
+    <button class="chip active" data-value="all">All</button>
+    <button class="chip" data-value="kafoo">嘉芙姐姐</button>
+    <button class="chip" data-value="zeongogo">志安哥哥</button>
+    <button class="chip" data-value="sunshine">天晴童謠</button>
+    <button class="chip" data-value="super-simple">Super Simple</button>
+    <button class="chip" data-value="disney">Disney</button>
+    <button class="chip" data-value="therapy">Speech therapy</button>
+    <button class="chip" data-value="other">Other</button>
+  </div>
   <div class="chips" data-group="speech">
     <span class="chip-group-label">Speech</span>
     <button class="chip active" data-value="all">All</button>
@@ -288,7 +391,7 @@ def main():
 {''.join(cards)}
 </div>
 <script>
-const state = {{ q: "", verdict: "all", lang: "all", cover: "all", speech: "all" }};
+const state = {{ q: "", verdict: "all", lang: "all", cover: "all", speech: "all", series: "all" }};
 const cards = [...document.querySelectorAll("#grid .card")];
 const count = document.getElementById("count");
 const q = document.getElementById("q");
@@ -300,9 +403,10 @@ function apply() {{
     const okVerdict = state.verdict === "all" || card.dataset.verdict === state.verdict;
     const okLang = state.lang === "all" || card.dataset.lang === state.lang;
     const okCover = state.cover === "all" || card.dataset.cover === state.cover;
+    const okSeries = state.series === "all" || card.dataset.series === state.series;
     const okSpeech = state.speech === "all" ||
       (state.speech === "5" ? card.dataset.speech === "5" : Number(card.dataset.speech) >= 4);
-    const ok = okName && okVerdict && okLang && okCover && okSpeech;
+    const ok = okName && okVerdict && okLang && okCover && okSeries && okSpeech;
     card.style.display = ok ? "" : "none";
     if (ok) shown++;
   }}
