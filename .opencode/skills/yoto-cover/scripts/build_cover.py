@@ -92,7 +92,8 @@ def place_char(char, width_f, bottom_f, x_f=0.0, top_f=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bg", required=True)
-    ap.add_argument("--char", required=True)
+    ap.add_argument("--char", default=None,
+                    help="character cut-out; omit for a collection card with no character")
     ap.add_argument("--title", nargs="+", required=True)
     ap.add_argument("--colour", default="#26323A")
     ap.add_argument("--out", required=True)
@@ -120,9 +121,13 @@ def main():
     args = ap.parse_args()
 
     canvas = plate(args.bg).convert("RGBA")
-    char, char_x, char_y = place_char(Image.open(args.char).convert("RGBA"),
-                                      args.char_width, args.char_bottom, args.char_x,
-                                      args.char_top)
+    if args.char:
+        char, char_x, char_y = place_char(Image.open(args.char).convert("RGBA"),
+                                          args.char_width, args.char_bottom, args.char_x,
+                                          args.char_top)
+    else:
+        char = None
+        char_x = char_y = 0
 
     colour = tuple(int(args.colour.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
     if args.no_tint:
@@ -154,7 +159,7 @@ def main():
 
     font_path = ensure_font(args.font)
     max_w = W * (1 - 2 * MARGIN)
-    top_of_art = char_y
+    top_of_art = char_y if char else int(H * 0.62)
 
     mark = None
     if not args.no_mark:
@@ -207,7 +212,8 @@ def main():
     y = band_top + gap_top - ink[1]
     canvas.alpha_composite(block, (0, y))
 
-    canvas.alpha_composite(char, (char_x, char_y))
+    if char:
+        canvas.alpha_composite(char, (char_x, char_y))
     out = canvas.convert("RGB")
     out.save(args.out, dpi=(300, 300), quality=92, optimize=True)
     print(f"{args.out}  art_top {top_of_art}  band {band_top}  ink_gap {gap_top}  "

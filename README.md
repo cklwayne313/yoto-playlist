@@ -16,6 +16,8 @@ rejected.
 |---|---|---|---|
 | `sing-with-raffi` | 10 | 21:28 | official audio, exact durations — best speech input |
 | `cantonese-nursery-rhymes` | 12 | 21:49 | Hong Kong recordings only |
+| `cantonese-rhymes-active` | 15 | 37:47 | 跳跳歌 — 天晴童謠 action songs, home language |
+| `cantonese-rhymes-calm` | 14 | 40:43 | 慢慢歌 — same channel, slower songs |
 | `pre-school-songs` | 15 | 33:11 | Old MacDonald card, recordings differ |
 | `farm-songs` | 15 | ~40 min | Super Simple Farm Songs |
 | `happy-songs` | 14 | 40:59 | 13 of 14 durations match exactly |
@@ -75,6 +77,10 @@ the Make Your Own card, and it looks the same on the player.
   characters are Super Simple's; the backgrounds and lettering are ours.
 - `super-simple-favourites` has a custom cover: Super Simple's Noodle character
   on flat cream, titled *My Favourites*.
+- `cantonese-rhymes-active` (跳跳歌) and `cantonese-rhymes-calm` (慢慢歌) are a
+  matched pair from the same Hong Kong channel: one daytime meadow with coral
+  lettering, one dusk meadow with indigo. No character on either — a collection
+  card does not need one.
 - Every custom cover carries the small hand-lettered **`HimHim`** mark, centred
   above the title in the same two colours every time — ink + coral, cream +
   coral on the dark card. It's the family's label, never a publisher logo, so
