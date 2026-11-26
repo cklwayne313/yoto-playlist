@@ -6,7 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — the yellow Noodle & Pals friend on a painted sunburst, titled **ACTION SONGS** with the HimHim mark above it. Official character art; our background and lettering. Not a Yoto card.
+**Cover:** `cover.jpg` — Gerald the giraffe from Yoto's *Giraffes Can't Dance*, painted into the scene in the same gouache style, titled **ACTION SONGS**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 21:49 · **Status:** verified
 
 ## How to use it

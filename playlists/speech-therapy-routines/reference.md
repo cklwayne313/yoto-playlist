@@ -6,7 +6,7 @@
 [Speech Room Resources](https://blog.speechroomresources.com/songs-for-speech-therapy),
 [Eyas Landing](https://eyaslanding.com/singing-in-speech-therapy) and
 [Gold Coast Health](https://www.goldcoast.health.qld.gov.au/our-services/childrens-services/community-child-health/talk-with-me/everyday-routines/songs)
-**Cover:** `cover.jpg` — Carl from Carl's Rescue Crew under a painted morning sky, titled **ROUTINE SONGS**. Official character art; our background and lettering. Not a Yoto card.
+**Cover:** `cover.jpg` — Peppa Pig from Yoto's *Family Time with Peppa*, painted into the scene in the same gouache style, titled **ROUTINE SONGS**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 20:56 · **Status:** verified
 
 ## How to use it

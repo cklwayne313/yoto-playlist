@@ -2,7 +2,7 @@
 
 **Inspired by:** your own YouTube Music list (6 tracks) plus the
 [Super Simple Songs Collection](https://us.yotoplay.com/products/super-simple-songs-collection)
-**Cover:** `cover.jpg` — Super Simple's Noodle character on flat cream, titled **MY FAVOURITES** with the HimHim mark above it. Official character art; the lettering is ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a PAW Patrol pup from Yoto's *PAW Patrol: Let's Dino Do This!*, painted into the scene in the same gouache style, titled **MY PICKS**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 16 · **Runtime:** 37:58 · **Status:** verified
 
 ## Track list

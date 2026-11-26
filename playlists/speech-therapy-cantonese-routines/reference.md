@@ -6,7 +6,7 @@
 and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS_Language_0-6_TC_2203.pdf)
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass)
-**Cover:** `cover.jpg` — the Roundabouts penguin in his red beanie under a painted navy night sky, titled **日常歌** in cream. Official character art; our background and lettering. Not a Yoto card.
+**Cover:** `cover.jpg` — the sleepy dinosaur from Yoto's *Yawn-O-Saurus: Sleepy Stories*, painted into the scene in the same gouache style, titled **日常歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 21:15 · **Status:** verified
 
 ## 點用（how to use it）
