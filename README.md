@@ -26,6 +26,7 @@ rejected.
 | `cantonese-community-songs` | 7 | 16:20 | 社區英雄 — 嘉芙姐姐 firefighters, doctors, postmen |
 | `cantonese-dinosaur-songs` | 4 | 8:11 | 恐龍歌 — 嘉芙姐姐 dinosaurs |
 | `cantonese-concept-songs` | 7 | 14:19 | 認知歌 — 嘉芙姐姐 fruit, shapes, body, food |
+| `cantonese-movement-songs` | 9 | 18:29 | 動作歌 — 嘉芙姐姐 clap, jump, turn, mask |
 | `cantonese-faith-songs` | 7 | 31:51 | 跟隨歌 — 志安歌歌 FOLLOW album |
 | `cantonese-christmas-songs` | 11 | 31:49 | 聖誕歌 — 志安歌歌 小禮物 album |
 | `pre-school-songs` | 15 | 33:11 | Old MacDonald card, recordings differ |
