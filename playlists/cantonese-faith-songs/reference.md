@@ -2,7 +2,7 @@
 
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own **FOLLOW** album, taken complete from the channel's playlist.
-**Cover:** `cover.jpg` — a full-bleed painted scene, titled **跟隨歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with Zog the dragon from Yoto's *The Zog Bundle*, painted into the scene in the same gouache style, titled **跟隨歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 7 · **Runtime:** 31:51 · **Status:** verified
 
 ## What it is

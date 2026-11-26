@@ -4,7 +4,7 @@
 The four dinosaurs were too few for a card on their own, and she has only those
 four — so this card widens to the animals around them: pandas, a lion, the forest
 and the sea.
-**Cover:** `cover.jpg` — a painted jungle with **The Very Hungry Caterpillar** (from Yoto's *First Seasons* card) on a leaf, titled **動物朋友**. Art is the publisher's; the scene and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with The Very Hungry Caterpillar from Yoto's *The Very Hungry Caterpillar's First Seasons*, painted into the scene in the same gouache style, titled **動物朋友**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 9 · **Runtime:** 21:15 · **Status:** verified
 
 ## What it is

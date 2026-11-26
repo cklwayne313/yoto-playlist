@@ -2,7 +2,7 @@
 
 **Inspired by:** 嘉芙姐姐's 跟我跳跳跳 / 跟我做早操 singles in the screenshots you sent,
 plus her other movement songs from the same channel.
-**Cover:** `cover.jpg` — a full-bleed painted scene, titled **動作歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with Daniel Tiger from Yoto's *Daniel Tiger's Neighborhood: Fun in the Sun*, painted into the scene in the same gouache style, titled **動作歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 9 · **Runtime:** 18:29 · **Status:** verified
 
 ## What it is

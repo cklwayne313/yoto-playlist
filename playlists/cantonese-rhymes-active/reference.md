@@ -4,7 +4,7 @@
 Own card (`天晴童謠・粵語兒歌30首`), split into two cards so each one is a session
 rather than a shelf. Every track is the **official upload** from [天晴童謠
 Sunshine Nursery Rhyme](https://www.youtube.com/@sunshinenurseryrhyme).
-**Cover:** `cover.jpg` — a full-bleed painted scene, titled **跳跳歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with the little fairy from Yoto's *Fairy Folk*, painted into the scene in the same gouache style, titled **跳跳歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 15 · **Runtime:** 37:47 · **Status:** verified
 
 ## Why two cards, not one

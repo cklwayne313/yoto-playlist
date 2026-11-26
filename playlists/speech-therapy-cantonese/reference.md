@@ -7,7 +7,7 @@ and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass) and
 [MOSTE](https://youtu.be/Y8kPVYrFXvo)
-**Cover:** `cover.jpg` — a full-bleed painted room with soft speech bubbles, titled **說話歌**. No character, the same as the collection cards. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with the old teddy bear from Yoto's *Old Bear and Friends*, painted into the scene in the same gouache style, titled **說話歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 12 · **Runtime:** 24:54 · **Status:** verified (Hong Kong channels only)
 
 ## 點用（how to use it）

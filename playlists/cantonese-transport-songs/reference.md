@@ -3,7 +3,7 @@
 **Inspired by:** the 嘉芙姐姐 transport playlist in the screenshots you sent
 (帶你遊香港, 坐巴士, 搭的士 …). Every track is her own upload from
 [嘉芙姐姐 Miss Ka Foo](https://www.youtube.com/channel/UCZgs3pLaFisZ-TKVOwFEe8Q).
-**Cover:** `cover.jpg` — a painted Hong Kong street with **Thomas the Tank Engine** (from Yoto's *Sing Along with Thomas & Friends* card) painted into the scene, titled **交通工具**. Art is the publisher's; the scene and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with Thomas the Tank Engine from Yoto's *Sing Along with Thomas & Friends*, painted into the scene in the same gouache style, titled **交通工具**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 16 · **Runtime:** 34:13 · **Status:** verified
 
 ## Why this one first

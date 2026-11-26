@@ -3,7 +3,7 @@
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own *BB 超人* album — the baby daily-life songs — taken complete from the
 channel's playlist, not a selection from the 100-song compilation.
-**Cover:** `cover.jpg` — a full-bleed painted scene, titled **生活歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with the yellow duckling from Super Simple's Five Little Ducks, painted into the scene in the same gouache style, titled **生活歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 14 · **Runtime:** 24:28 · **Status:** verified
 
 ## Why this card first

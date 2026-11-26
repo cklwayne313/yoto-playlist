@@ -2,7 +2,7 @@
 
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own **HAPPY!** album, taken complete from the channel's playlist.
-**Cover:** `cover.jpg` — a full-bleed painted scene, titled **開心歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a full-bleed painted scene with the tiger from Yoto's *The Tiger Who Came to Tea*, painted into the scene in the same gouache style, titled **開心歌**. The character is the publisher's art; the scene and lettering are ours. Not a Yoto card.
 **Tracks:** 11 · **Runtime:** 26:23 · **Status:** verified
 
 ## What it is
