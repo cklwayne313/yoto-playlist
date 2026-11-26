@@ -16,6 +16,7 @@ rejected.
 |---|---|---|---|
 | `sing-with-raffi` | 10 | 21:28 | official audio, exact durations — best speech input |
 | `cantonese-nursery-rhymes` | 12 | 21:49 | Hong Kong recordings only |
+| `cantonese-life-songs` | 14 | 24:28 | 生活歌 — 志安歌歌 daily-life album; trim marks measured |
 | `cantonese-rhymes-active` | 15 | 37:47 | 跳跳歌 — 天晴童謠 action songs, home language |
 | `cantonese-rhymes-calm` | 14 | 40:43 | 慢慢歌 — same channel, slower songs |
 | `pre-school-songs` | 15 | 33:11 | Old MacDonald card, recordings differ |

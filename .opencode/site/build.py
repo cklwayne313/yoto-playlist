@@ -127,6 +127,7 @@ CUSTOM_COVERS = {
     "speech-therapy-routines", "speech-therapy-social", "speech-therapy-feelings",
     "speech-therapy-cantonese-animals", "speech-therapy-cantonese-routines",
     "super-simple-favourites",
+    "cantonese-life-songs",
     "cantonese-rhymes-active",
     "cantonese-rhymes-calm",
 }
