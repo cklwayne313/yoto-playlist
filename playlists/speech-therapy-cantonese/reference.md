@@ -1,4 +1,4 @@
-# 講嘢歌 — Cantonese speech-therapy songs
+# 說話歌 — Cantonese speech-therapy songs
 
 **Inspired by:** Hong Kong speech-therapy guidance — 衞生署
 [家庭健康服務](https://www.fhs.gov.hk/tc_chi/health_info/child/13038.html)
@@ -7,7 +7,7 @@ and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass) and
 [MOSTE](https://youtu.be/Y8kPVYrFXvo)
-**Cover:** `cover.jpg` — Finny the Shark underwater, titled **講嘢歌** ("talking songs"), on the same painted-scene system as the eight target cards. The card is therapy-built but it is still a song card, so the shelf label names what he does with it, not the clinic. The shark is Super Simple's art; the water and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — Finny the Shark underwater, titled **說話歌** ("talking songs" — standard written Chinese rather than colloquial 講嘢), on the same painted-scene system as the eight target cards. The card is therapy-built but it is still a song card, so the shelf label names what he does with it, not the clinic. The shark is Super Simple's art; the water and lettering are ours. Not a Yoto card.
 **Tracks:** 12 · **Runtime:** 24:54 · **Status:** verified (Hong Kong channels only)
 
 ## 點用（how to use it）
