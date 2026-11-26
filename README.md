@@ -19,6 +19,10 @@ rejected.
 | `cantonese-life-songs` | 14 | 24:28 | 生活歌 — 志安歌歌 daily-life album; trim marks measured |
 | `cantonese-rhymes-active` | 15 | 37:47 | 跳跳歌 — 天晴童謠 action songs, home language |
 | `cantonese-rhymes-calm` | 14 | 40:43 | 慢慢歌 — same channel, slower songs |
+| `cantonese-happy-songs` | 11 | 26:23 | 開心歌 — 志安歌歌 HAPPY! album |
+| `cantonese-play-songs` | 14 | 36:39 | 遊戲歌 — 志安歌歌 Go! Go! Go! album |
+| `cantonese-faith-songs` | 7 | 31:51 | 跟隨歌 — 志安歌歌 FOLLOW album |
+| `cantonese-christmas-songs` | 11 | 31:49 | 聖誕歌 — 志安歌歌 小禮物 album |
 | `pre-school-songs` | 15 | 33:11 | Old MacDonald card, recordings differ |
 | `farm-songs` | 15 | ~40 min | Super Simple Farm Songs |
 | `happy-songs` | 14 | 40:59 | 13 of 14 durations match exactly |
