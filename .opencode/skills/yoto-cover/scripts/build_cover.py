@@ -116,6 +116,10 @@ def main():
                     help="gap under the character, as a fraction of card height")
     ap.add_argument("--char-x", type=float, default=0.0,
                     help="horizontal nudge, as a fraction of card width")
+    ap.add_argument("--title-top", type=float, default=None,
+                    help="force the title band start, as a fraction of card height")
+    ap.add_argument("--title-bottom", type=float, default=None,
+                    help="force the title band end, as a fraction of card height")
     ap.add_argument("--char-top", type=float, default=None,
                     help="place the top of the character at this fraction of the card height")
     args = ap.parse_args()
@@ -169,8 +173,16 @@ def main():
 
     mark_top = int(H * MARK_TOP)
     title_top = mark_top + (mark.height + int(H * MARK_GAP) if mark else 0)
-    avail = top_of_art - title_top - int(H * 0.02)
+    band_top = title_top
+    band_bottom = top_of_art
+    if args.title_top is not None:
+        band_top = int(H * args.title_top)
+    if args.title_bottom is not None:
+        band_bottom = int(H * args.title_bottom)
+    avail = band_bottom - band_top - int(H * 0.02)
+    title_top_eff = band_top
 
+    _ = title_top
     def render(text, size, ink=colour):
         seed = (args.seed * 131 + len(text)) & 0xFFFFFFFF
         return hand(render_hand_line(text, font_path, size, ink, seed, args.jitter), seed, size)
@@ -206,8 +218,8 @@ def main():
 
     ink = block.getbbox()
     ink_h = ink[3] - ink[1]
-    band_top = mark_top + (mark.getbbox()[3] if mark else 0)
-    space = top_of_art - int(H * 0.015) - band_top
+    band_top = title_top_eff if (args.title_top is not None) else mark_top + (mark.getbbox()[3] if mark else 0)
+    space = band_bottom - int(H * 0.015) - band_top
     gap_top = max(0, (space - ink_h) // 2)
     y = band_top + gap_top - ink[1]
     canvas.alpha_composite(block, (0, y))
