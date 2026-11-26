@@ -19,21 +19,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Install dependencies
+
+      # Emit reads RANKING.md and playlists/*/reference.md, writes the JSON and
+      # copies the covers. It needs markdown + pillow; the contact sheet needs a
+      # CJK face.
+      - name: Install Python dependencies
         run: pip install markdown pillow
-      - name: Build static site
-        run: python .opencode/site/build.py
+
+      - name: Install CJK fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      # npm run build = npm run emit (python3 ../.opencode/site/emit.py) && vite build
+      - name: Build the shelf
+        working-directory: web
+        run: npm run build
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: web/dist
 
   deploy:
     needs: build

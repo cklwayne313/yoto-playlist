@@ -153,17 +153,35 @@ asks for — trim art into a bleed workflow gives white edges. See
 
 ## Browsing it as a website
 
-`docs/` is a generated static site: the ranked shelf, one page per playlist with
-clickable links and covers, plus the ranking and this readme. Rebuild after
-editing any markdown:
+The shelf is a small React app in `web/`, built with Vite. It is not edited by
+hand: a Python step reads the markdown and emits the data the app renders.
 
-```bash
-python3 .opencode/site/build.py
+```
+playlists/<card>/reference.md ─┐
+RANKING.md ────────────────────┼─> .opencode/site/emit.py ─> web/src/data/playlists.json
+playlists/<card>/cover.jpg ────┘                            web/public/covers/
 ```
 
-To publish on GitHub Pages: push the repo, then **Settings → Pages → Deploy from
-a branch → `main` / `/docs`**. The site works from a subpath, so
-`https://<user>.github.io/<repo>/` is fine.
+Run it locally:
+
+```bash
+cd web
+npm install          # once
+npm run dev          # emits the data, then serves on localhost:5173
+npm run build        # emits, then builds web/dist
+```
+
+`npm run build` always runs `emit.py` first, so editing `reference.md` or
+`RANKING.md` and rebuilding is the whole workflow — the markdown stays the single
+source of truth, and React never parses it.
+
+On a phone the app installs to the home screen and works offline: the shell, the
+data and every cover thumbnail are precached, and full covers are cached as you
+open them.
+
+Publishing is automatic: `.github/workflows/pages.yml` builds `web/dist` and
+deploys it to GitHub Pages on every push to `main`. The site lives under
+`/yoto-playlist/`, which `vite.config.js` sets as its base.
 
 ## Using a playlist
 

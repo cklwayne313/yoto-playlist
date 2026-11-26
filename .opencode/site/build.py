@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Build the static site in docs/ for GitHub Pages.
+"""The old static-site generator, kept for its parsers.
 
-Run from the project root:
+The site is now the React app in web/, and .opencode/site/emit.py imports the
+functions below (parse_ranking, series_of, runtime_of, md_to_html, build_sheet)
+to turn the markdown into JSON and images.
 
-    python3 .opencode/site/build.py
-
-It reads RANKING.md for the order, every playlists/*/reference.md for the pages,
-and copies the covers into docs/covers/.
+Running this file directly still writes the old static HTML site into docs/.
+That output is no longer deployed or committed; it is useful only for a quick
+sanity check of the parsing.
 """
 
 import html
