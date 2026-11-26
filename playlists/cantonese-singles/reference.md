@@ -2,8 +2,7 @@
 
 **Inspired by:** the remaining 志安哥哥 tracks in the playlist screenshots you
 sent — the ones that are not on any of his five albums.
-**Cover:** `cover.jpg` — painted cream wall with paper confetti shapes, titled
-**精選歌**. Not a Yoto card.
+**Cover:** `cover.jpg` — the orange Bumble Num (Super Simple's art, used as the series mascot) on a painted scene, titled **精選歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 18 · **Runtime:** 41:55 · **Status:** verified
 
 ## What it is

@@ -1,7 +1,7 @@
 # 社區英雄 — Miss Ka Foo songs
 
 **Inspired by:** the 嘉芙姐姐 playlist in the screenshots you sent.
-**Cover:** `cover.jpg` — painted scene, titled **社區英雄**. Not a Yoto card.
+**Cover:** `cover.jpg` — the purple Rhymington monster (Super Simple's art, used as the series mascot) on a painted scene, titled **社區英雄**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 7 · **Runtime:** 16:20 · **Status:** verified
 
 ## What it is

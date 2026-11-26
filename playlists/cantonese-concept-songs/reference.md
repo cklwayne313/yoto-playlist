@@ -1,8 +1,7 @@
 # 認知歌 — Miss Ka Foo naming songs
 
 **Inspired by:** 嘉芙姐姐's Vol.8 and vocabulary songs in the screenshots you sent.
-**Cover:** `cover.jpg` — painted cream wall with a coral circle, sage triangle and
-yellow square, titled **認知歌**. Not a Yoto card.
+**Cover:** `cover.jpg` — the purple Rhymington monster (Super Simple's art, used as the series mascot) on a painted scene, titled **認知歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 7 · **Runtime:** 14:19 · **Status:** verified
 
 ## What it is
