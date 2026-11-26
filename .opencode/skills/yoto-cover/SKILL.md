@@ -27,7 +27,7 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second, tight leading (~0.03 em between lines). Sized to the band between the mark and the character, never overlapping either |
 | Background | a simple painted scene, generated per card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
 | Character top | **40% of card height**, the same on every card — that is what stops one card looking emptier than the next. Cut-out sat on the bottom edge, body running off it |
-| Character scale, painted-into-scene cards | **30–40% of card height** (300–400 px), feet/contact in the lower third, never under the title. Say "about a third of the picture's height, clearly the main subject" in the prompt — "small in the frame" produces a speck that disappears in the app grid |
+| Character scale, painted-into-scene cards | **45–55% of card height**: head or hat top just under the title band (**~40% down**), feet/contact at **~90%**. The figure must bridge title and floor — a character sitting at 70–85% leaves a dead band of empty wall in the middle and the card looks bottom-heavy. Say "head at about 40% down, feet at about 90%, filling the middle of the card" in the prompt. "Small in the frame" produces a speck; "a third of the height" still leaves a gap |
 | Props | one scene idea per card, painted into the background. Not a collage of objects around the character |
 | Shadow | none, or a barely visible one |
 
