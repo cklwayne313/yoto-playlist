@@ -22,6 +22,7 @@ build() { # card  colour  char-width  max-size  [--font CJK]  title...
   local card=$1 colour=$2 width=$3 cap=$4; shift 4
   local font=()
   [ "$1" = "--cjk" ] && { font=(--font "$CJK" --jitter 0.35); shift; }
+  [ "$1" = "--no-tint" ] && { font+=(--no-tint); shift; }
   python3 "$S" \
     --bg "$A/$card-plate.jpg" \
     --char "$A/$card-character.png" \
@@ -36,11 +37,11 @@ build() { # card  colour  char-width  max-size  [--font CJK]  title...
 }
 
 build speech-therapy-animals             '#A63352' 0.84 128 ANIMAL  SONGS
-build speech-therapy-actions             '#814202' 0.78 120 ACTION  SONGS
+build speech-therapy-actions             '#C25E1E' 0.78 120 ACTION  SONGS
 build speech-therapy-food                '#056158' 1.00 128 FOOD    SONGS
 build speech-therapy-routines            '#134574' 0.52 120 ROUTINE SONGS
 build speech-therapy-social              '#902D65' 0.84 124 SOCIAL  SONGS
 build speech-therapy-feelings            '#74380F' 0.92 120 FEELING SONGS
 CHAR_X=-0.04 build speech-therapy-cantonese-animals '#235325' 0.72 140 --cjk 動物歌
 build speech-therapy-cantonese-routines  '#FDF1B9' 0.74 140 --cjk 日常歌
-build super-simple-favourites            '#058AC9' 0.84 118 MY FAVOURITES
+build super-simple-favourites            '#058AC9' 0.84 118 --no-tint MY PICKS

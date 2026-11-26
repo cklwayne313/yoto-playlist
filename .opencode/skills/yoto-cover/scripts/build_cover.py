@@ -103,6 +103,12 @@ def main():
     ap.add_argument("--font", default=None, help="typeface for the title, e.g. a CJK face")
     ap.add_argument("--jitter", type=float, default=1.0)
     ap.add_argument("--max-size", type=int, default=0, help="cap the title size, in px")
+    ap.add_argument("--colour2", default=None,
+                    help="colour for the second title line; default is a lighter tint")
+    ap.add_argument("--no-tint", action="store_true",
+                    help="keep the second line the same colour as the first")
+    ap.add_argument("--tint", type=float, default=0.28,
+                    help="how far the second line is blended to white, 0-1")
     ap.add_argument("--char-width", type=float, default=1.0,
                     help="character width as a fraction of the card width")
     ap.add_argument("--char-bottom", type=float, default=0.0,
@@ -119,6 +125,12 @@ def main():
                                       args.char_top)
 
     colour = tuple(int(args.colour.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    if args.no_tint:
+        colour2 = colour
+    elif args.colour2:
+        colour2 = tuple(int(args.colour2.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    else:
+        colour2 = tuple(int(c + (255 - c) * args.tint) for c in colour)
     font_path = ensure_font(args.font)
     max_w = W * (1 - 2 * MARGIN)
     top_of_art = char_y
@@ -133,13 +145,14 @@ def main():
     title_top = mark_top + (mark.height + int(H * MARK_GAP) if mark else 0)
     avail = top_of_art - int(H * BOTTOM_GAP) - title_top
 
-    def render(text, size):
+    def render(text, size, ink=colour):
         seed = (args.seed * 131 + len(text)) & 0xFFFFFFFF
-        return hand(render_hand_line(text, font_path, size, colour, seed, args.jitter), seed, size)
+        return hand(render_hand_line(text, font_path, size, ink, seed, args.jitter), seed, size)
 
     size = args.max_size or 220
     while size > 24:
-        lines = [render(t, size) for t in args.title]
+        lines = [render(t, size, colour if i == 0 else colour2)
+                 for i, t in enumerate(args.title)]
         gap = int(size * 0.03)
         block_w = max(l.width for l in lines)
         total = sum(l.height for l in lines) + gap * (len(lines) - 1)
@@ -147,7 +160,8 @@ def main():
             break
         size = int(size * 0.94)
 
-    lines = [render(t, size) for t in args.title]
+    lines = [render(t, size, colour if i == 0 else colour2)
+             for i, t in enumerate(args.title)]
     gap = int(size * 0.03)
     block_w = max([l.width for l in lines] + ([mark.width] if mark else [0]))
     left = int((W - block_w) / 2)
