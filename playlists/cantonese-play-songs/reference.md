@@ -2,7 +2,7 @@
 
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own **Go! Go! Go!** album, taken complete from the channel's playlist.
-**Cover:** `cover.jpg` — a green Noodle & Pals friend (Super Simple's official art) on a painted scene, titled **遊戲歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a painted scene, titled **遊戲歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 14 · **Runtime:** 36:39 · **Status:** verified
 
 ## What it is

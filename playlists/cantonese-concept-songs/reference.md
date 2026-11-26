@@ -1,7 +1,7 @@
 # 認知歌 — Miss Ka Foo naming songs
 
 **Inspired by:** 嘉芙姐姐's Vol.8 and vocabulary songs in the screenshots you sent.
-**Cover:** `cover.jpg` — the small orange shark (Pinkfong's official art) on a painted scene, titled **認知歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — a painted scene, titled **認知歌**. No character: these are collection cards, and a borrowed mascot on a Cantonese song card reads as a sticker. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 7 · **Runtime:** 14:19 · **Status:** verified
 
 ## What it is
