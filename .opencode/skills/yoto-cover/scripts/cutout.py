@@ -21,28 +21,35 @@ def main():
     ap.add_argument("src")
     ap.add_argument("out")
     ap.add_argument("--tol", type=float, default=70.0)
-    ap.add_argument("--erode", type=int, default=3)
+    ap.add_argument("--erode", type=int, default=2)
+    ap.add_argument("--feather", type=float, default=55.0,
+                    help="width of the soft alpha ramp, in colour distance")
     args = ap.parse_args()
 
     im = Image.open(args.src).convert("RGB")
     rgb = np.asarray(im).astype(np.float32)
 
     dist = np.sqrt(((rgb - KEY) ** 2).sum(axis=2))
-    solid = (dist > args.tol).astype(np.uint8) * 255
+
+    # soft edge: a ramp between two thresholds, not a hard cut, so the
+    # silhouette stays smooth at card size
+    t0 = args.tol
+    t1 = args.tol + args.feather
+    alpha = np.clip((dist - t0) / max(1.0, t1 - t0), 0, 1)
 
     if args.erode:
-        solid = np.asarray(Image.fromarray(solid, "L").filter(
-            ImageFilter.MinFilter(args.erode * 2 + 1)))
+        alpha = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8), "L")
+                           .filter(ImageFilter.MinFilter(args.erode * 2 + 1))).astype(np.float32) / 255
 
-    alpha = Image.fromarray(solid, "L").filter(ImageFilter.GaussianBlur(0.8))
     out = im.convert("RGBA")
-    out.putalpha(alpha)
+    out.putalpha(Image.fromarray((alpha * 255).astype(np.uint8), "L"))
 
     # despill: pull green out of the fringe
     arr = np.asarray(out).astype(np.float32)
-    edge = (np.asarray(alpha) > 0) & (np.asarray(alpha) < 250)
+    a = arr[:, :, 3]
+    edge = (a > 6) & (a < 250)
     g = arr[:, :, 1]
-    spike = edge & (g > arr[:, :, 0] + 18) & (g > arr[:, :, 2] + 18)
+    spike = edge & (g > arr[:, :, 0] + 14) & (g > arr[:, :, 2] + 14)
     arr[:, :, 1] = np.where(spike, (arr[:, :, 0] + arr[:, :, 2]) / 2, arr[:, :, 1])
     out = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), "RGBA")
 

@@ -69,8 +69,8 @@ the Make Your Own card, and it looks the same on the player.
   card, so no two covers repeat: the Roundabouts pig (*Animal Songs*), the yellow
   Noodle & Pals friend (*Action Songs*), a Bumble Num (*Food Songs*), Carl's
   Rescue Crew (*Routine Songs*), a Rhymington Square monster (*Social Songs*),
-  Lulu the Owl (*Feeling Songs*), the Peekaboo cat (動物歌) and a Roundabouts
-  penguin (日常歌). Each sits in its own painted scene — meadow, sunburst,
+  Lulu the Owl (*Feeling Songs*), the ABC Hop rabbit (動物歌) and a
+  Roundabouts penguin (日常歌). Each sits in its own painted scene — meadow, sunburst,
   kitchen, morning sky, party wall, sand rings, garden, night sky. The
   characters are Super Simple's; the backgrounds and lettering are ours.
 - `super-simple-favourites` has a custom cover: Super Simple's Noodle character

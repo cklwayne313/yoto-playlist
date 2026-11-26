@@ -6,7 +6,7 @@
 and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS_Language_0-6_TC_2203.pdf)
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass)
-**Cover:** `cover.jpg` — the white Peekaboo cat on a painted garden and pale sky, titled **動物歌** in dark green so a cream character still reads. Official character art; our background and lettering. Not a Yoto card.
+**Cover:** `cover.jpg` — the grey ABC Hop rabbit (long ears, buck teeth, waving) on a painted garden and pale sky, titled **動物歌** in dark green. A rabbit rather than a blob character, so a two-year-old can name the animal on the card. Official character art; our background and lettering. Not a Yoto card.
 **Tracks:** 10 · **Runtime:** 23:02 · **Status:** verified
 
 ## 點用（how to use it）
