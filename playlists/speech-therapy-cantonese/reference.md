@@ -7,10 +7,7 @@ and the [兒童體能智力測驗服務](http://www.dhcas.gov.hk/file/GFS/tc/GFS
 language booklet — plus songs written for therapy by
 [樂在課中](https://www.youtube.com/@MusicTherapyInClass) and
 [MOSTE](https://youtu.be/Y8kPVYrFXvo)
-**Cover:** `cover.jpg` — Yoto's *Animal Sounds* card art, used as a thematic
-stand-in. Animal sounds are the first thing a late talker imitates, so the theme
-fits even though the songs are Cantonese and the card lettering is English.
-`https://media-static.yotomedia.com/yoto/pub/w7wILUu17rOIvRf_EumacShSN5yiDgL2MTPZHi7KsIU?type=cover&width=1200&quality=90`
+**Cover:** `cover.jpg` — Finny the Shark underwater, titled **言語治療**, on the same painted-scene system as the eight target cards. The shark is Super Simple's art, used as a warm stand-in; the water and lettering are ours. Not a Yoto card.
 **Tracks:** 12 · **Runtime:** 24:54 · **Status:** verified (Hong Kong channels only)
 
 ## 點用（how to use it）

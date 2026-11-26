@@ -2,9 +2,7 @@
 
 **Inspired by:** your request — Cantonese nursery rhymes for a toddler who may
 have a speech delay
-**Cover:** `cover.jpg` — Yoto's *Nursery Rhymes* card art, used as a thematic
-stand-in. No Cantonese card exists, so this is borrowed for the theme (bear
-playing a clarinet), not because it matches the audio.
+**Cover:** `cover.jpg` — a Super Simple duck on a painted Hong Kong pond, titled **童謠**. The duck is Super Simple's art, used as a friendly stand-in; the pond and lettering are ours. Not a Yoto card.
 **Tracks:** 12 · **Runtime:** 21:49 · **Status:** verified
 
 Every recording below is a **Hong Kong production** — 奇音樂奇世界, 天晴童謠,

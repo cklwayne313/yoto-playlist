@@ -72,12 +72,11 @@ pulled from the product page. Upload it as the playlist image when you create
 the Make Your Own card, and it looks the same on the player.
 
 - It's the publisher's artwork, so it's for your own card — don't redistribute it.
-- `cantonese-nursery-rhymes` uses Yoto's *Nursery Rhymes* art as a thematic
-  stand-in; no Cantonese card exists.
+- `cantonese-nursery-rhymes` and `speech-therapy-cantonese` now have their own
+  HimHim covers too — a Super Simple duck on a painted pond, and Finny the Shark
+  underwater — so the whole Cantonese shelf uses our art, not borrowed Yoto art.
 - `speech-therapy-english` uses Ms. Rachel's *I'm So Happy* art — the closest
   Yoto card to the theme, since her show began as a speech-and-language resource.
-- `speech-therapy-cantonese` uses Yoto's *Animal Sounds* art; animal sounds are
-  the first thing a late talker imitates.
 - The eight target cards use **eight different Super Simple characters**, one per
   card, so no two covers repeat: the Roundabouts pig (*Animal Songs*), the yellow
   Noodle & Pals friend (*Action Songs*), a Bumble Num (*Food Songs*), Carl's

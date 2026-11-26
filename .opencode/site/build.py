@@ -141,6 +141,8 @@ CUSTOM_COVERS = {
     "cantonese-christmas-songs",
     "cantonese-rhymes-active",
     "cantonese-rhymes-calm",
+    "cantonese-nursery-rhymes",
+    "speech-therapy-cantonese",
 }
 
 
