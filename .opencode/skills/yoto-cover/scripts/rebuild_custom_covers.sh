@@ -44,4 +44,4 @@ build speech-therapy-social              '#902D65' 0.84 124 SOCIAL  SONGS
 build speech-therapy-feelings            '#74380F' 0.92 120 FEELING SONGS
 CHAR_X=-0.04 build speech-therapy-cantonese-animals '#235325' 0.72 140 --cjk 動物歌
 build speech-therapy-cantonese-routines  '#FDF1B9' 0.74 140 --cjk 日常歌
-build super-simple-favourites            '#058AC9' 0.84 118 --no-tint MY PICKS
+build super-simple-favourites            '#0B6FA8' 0.84 118 MY PICKS

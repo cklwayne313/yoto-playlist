@@ -130,7 +130,28 @@ def main():
     elif args.colour2:
         colour2 = tuple(int(args.colour2.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
     else:
-        colour2 = tuple(int(c + (255 - c) * args.tint) for c in colour)
+        # the second line is always a lighter tint of the first, so the
+        # hierarchy never inverts; step the tint down until it reads
+        def lum(c):
+            def ch(v):
+                v /= 255
+                return v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4
+            r, g, b = (ch(v) for v in c)
+            return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+        def ratio(a, b):
+            la, lb = sorted((lum(a), lum(b)), reverse=True)
+            return (la + 0.05) / (lb + 0.05)
+
+        band = np.asarray(canvas.convert("RGB").crop((0, int(H * .12), W, int(H * .32)))).astype(np.float32)
+        bg = tuple(int(v) for v in np.median(band.reshape(-1, 3), axis=0))
+        colour2 = colour
+        for tint in (args.tint, 0.22, 0.15, 0.08):
+            cand = tuple(int(c + (255 - c) * tint) for c in colour)
+            if cand != colour and ratio(cand, bg) >= 2.0:
+                colour2 = cand
+                break
+
     font_path = ensure_font(args.font)
     max_w = W * (1 - 2 * MARGIN)
     top_of_art = char_y
@@ -143,7 +164,7 @@ def main():
 
     mark_top = int(H * MARK_TOP)
     title_top = mark_top + (mark.height + int(H * MARK_GAP) if mark else 0)
-    avail = top_of_art - int(H * BOTTOM_GAP) - title_top
+    avail = top_of_art - title_top - int(H * 0.02)
 
     def render(text, size, ink=colour):
         seed = (args.seed * 131 + len(text)) & 0xFFFFFFFF
@@ -169,16 +190,27 @@ def main():
     if mark:
         canvas.alpha_composite(mark, (int((W - mark.width) / 2), mark_top))
 
+    # compose the block, then centre its *ink*, not its line boxes, so the gap
+    # under the mark and the gap above the character are equal
     block_h = sum(l.height for l in lines) + gap * (len(lines) - 1)
-    y = title_top + max(0, int((avail - block_h) * 0.45))
+    block = Image.new("RGBA", (W, block_h), (0, 0, 0, 0))
+    y = 0
     for line in lines:
-        canvas.alpha_composite(line, (int((W - line.width) / 2), y))
+        block.alpha_composite(line, (int((W - line.width) / 2), y))
         y += line.height + gap
+
+    ink = block.getbbox()
+    ink_h = ink[3] - ink[1]
+    band_top = mark_top + (mark.getbbox()[3] if mark else 0)
+    space = top_of_art - int(H * 0.015) - band_top
+    gap_top = max(0, (space - ink_h) // 2)
+    y = band_top + gap_top - ink[1]
+    canvas.alpha_composite(block, (0, y))
 
     canvas.alpha_composite(char, (char_x, char_y))
     out = canvas.convert("RGB")
     out.save(args.out, dpi=(300, 300), quality=92, optimize=True)
-    print(f"{args.out}  art_top {top_of_art}  avail {avail}  title {title_top}..{y - gap}  "
+    print(f"{args.out}  art_top {top_of_art}  band {band_top}  ink_gap {gap_top}  "
           f"size {size}  block {block_w}/{int(max_w)}")
 
 
