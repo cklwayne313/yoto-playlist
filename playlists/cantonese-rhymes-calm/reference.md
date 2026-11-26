@@ -4,7 +4,7 @@
 Own card (`天晴童謠・粵語兒歌30首`), split into two cards so each one is a session
 rather than a shelf. Every track is the **official upload** from [天晴童謠
 Sunshine Nursery Rhyme](https://www.youtube.com/@sunshinenurseryrhyme).
-**Cover:** `cover.jpg` — the smiling sun (Super Simple's art, used as the series mascot) on a painted scene, titled **慢慢歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — Grandpa Shark (Pinkfong's official art) on a painted scene, titled **慢慢歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 14 · **Runtime:** 40:43 · **Status:** verified
 
 ## Why two cards, not one

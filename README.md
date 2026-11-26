@@ -87,10 +87,11 @@ the Make Your Own card, and it looks the same on the player.
   characters are Super Simple's; the backgrounds and lettering are ours.
 - `super-simple-favourites` has a custom cover: Super Simple's Noodle character
   on flat cream, titled *My Favourites*.
-- The Cantonese collections use one **series mascot** each, so a child can tell
-  whose card it is before he can read: the orange Bumble Num for 志安哥哥, the
-  purple Rhymington monster for 嘉芙姐姐, the smiling sun for 天晴童謠. The
-  mascot is Super Simple's art; the scenes and lettering are ours.
+- Each Cantonese collection carries **its own character**, one per card and never
+  repeated: Super Simple art on the eight 志安/天晴 cards (Bumble Num, Noodle &
+  Pals, Rhymington Square, Peekaboo Cat, the smiling sun) and Pinkfong's Shark
+  Family on the five 嘉芙 cards. Characters are the publishers' art; scenes and
+  lettering are ours.
 - `cantonese-rhymes-active` (跳跳歌) and `cantonese-rhymes-calm` (慢慢歌) are a
   matched pair from the same Hong Kong channel: one daytime meadow with coral
   lettering, one dusk meadow with indigo. No character on either — a collection

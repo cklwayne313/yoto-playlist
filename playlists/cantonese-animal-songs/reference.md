@@ -4,7 +4,7 @@
 The four dinosaurs were too few for a card on their own, and she has only those
 four — so this card widens to the animals around them: pandas, a lion, the forest
 and the sea.
-**Cover:** `cover.jpg` — the purple Rhymington monster (Super Simple's art, used as the series mascot) on a painted scene, titled **動物朋友**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — Grandma Shark (Pinkfong's official art) on a painted scene, titled **動物朋友**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 9 · **Runtime:** 21:15 · **Status:** verified
 
 ## What it is

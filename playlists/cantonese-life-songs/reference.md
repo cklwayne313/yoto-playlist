@@ -3,7 +3,7 @@
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own *BB 超人* album — the baby daily-life songs — taken complete from the
 channel's playlist, not a selection from the 100-song compilation.
-**Cover:** `cover.jpg` — the orange Bumble Num (Super Simple's art, used as the series mascot) on a painted scene, titled **生活歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — an orange Bumble Num (Super Simple's official art) on a painted scene, titled **生活歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 14 · **Runtime:** 24:28 · **Status:** verified
 
 ## Why this card first

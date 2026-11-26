@@ -2,7 +2,7 @@
 
 **Inspired by:** the 志安哥哥 songs in the playlist screenshots you sent. This is
 his own **小禮物** album, taken complete from the channel's playlist.
-**Cover:** `cover.jpg` — the orange Bumble Num (Super Simple's art, used as the series mascot) on a painted scene, titled **聖誕歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — Peekaboo Cat in his winter hat (Super Simple's official art) on a painted scene, titled **聖誕歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 11 · **Runtime:** 31:49 · **Status:** verified
 
 ## What it is

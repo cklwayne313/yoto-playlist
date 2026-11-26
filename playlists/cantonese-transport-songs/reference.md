@@ -3,7 +3,7 @@
 **Inspired by:** the 嘉芙姐姐 transport playlist in the screenshots you sent
 (帶你遊香港, 坐巴士, 搭的士 …). Every track is her own upload from
 [嘉芙姐姐 Miss Ka Foo](https://www.youtube.com/channel/UCZgs3pLaFisZ-TKVOwFEe8Q).
-**Cover:** `cover.jpg` — the purple Rhymington monster (Super Simple's art, used as the series mascot) on a painted scene, titled **交通工具**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — Daddy Shark (Pinkfong's official art) on a painted scene, titled **交通工具**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 16 · **Runtime:** 34:13 · **Status:** verified
 
 ## Why this one first

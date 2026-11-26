@@ -2,7 +2,7 @@
 
 **Inspired by:** 嘉芙姐姐's 跟我跳跳跳 / 跟我做早操 singles in the screenshots you sent,
 plus her other movement songs from the same channel.
-**Cover:** `cover.jpg` — the purple Rhymington monster (Super Simple's art, used as the series mascot) on a painted scene, titled **動作歌**. Background and lettering are ours. Not a Yoto card.
+**Cover:** `cover.jpg` — the purple shark (Pinkfong's official art) on a painted scene, titled **動作歌**. Background and lettering are ours. Not a Yoto card.
 **Tracks:** 9 · **Runtime:** 18:29 · **Status:** verified
 
 ## What it is
