@@ -27,6 +27,7 @@ YouTube list, or a language/theme Yoto doesn't sell.
 | Title | chunky rounded, hand-lettered, two lines with `SONGS` on the second, tight leading (~0.03 em between lines). Sized to the band between the mark and the character, never overlapping either |
 | Background | a simple painted scene, generated per card — sky, hills, waves, bunting, stars. Not a flat fill: flat is what makes a custom card look homemade |
 | Character top | **40% of card height**, the same on every card — that is what stops one card looking emptier than the next. Cut-out sat on the bottom edge, body running off it |
+| Character scale, painted-into-scene cards | **30–40% of card height** (300–400 px), feet/contact in the lower third, never under the title. Say "about a third of the picture's height, clearly the main subject" in the prompt — "small in the frame" produces a speck that disappears in the app grid |
 | Props | one scene idea per card, painted into the background. Not a collage of objects around the character |
 | Shadow | none, or a barely visible one |
 
@@ -135,8 +136,10 @@ before using it.
 
 - Open the result next to `playlists/happy-songs/cover.jpg`. Cream tone, blue
   tone, title weight and character scale should look like siblings.
-- Shrink it to ~200px wide (the Yoto app tile size). The character must still
-  read; the title may not, which is fine.
+- Shrink it to **126px wide** (the Yoto app grid tile) and again to ~60px. The
+  character must still be identifiable at 126 px — that is the size a child
+  actually picks the card by. If it turns into a dot, generate it again larger
+  rather than nudging the crop; the title may blur, the face may not.
 - Look for a pale halo or green fringe at the character edge — increase
   `--erode` (default 7) if you see one.
 
