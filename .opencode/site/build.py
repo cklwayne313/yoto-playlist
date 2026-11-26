@@ -132,6 +132,7 @@ CUSTOM_COVERS = {
     "cantonese-transport-songs",
     "cantonese-community-songs",
     "cantonese-dinosaur-songs",
+    "cantonese-concept-songs",
     "cantonese-happy-songs",
     "cantonese-play-songs",
     "cantonese-faith-songs",
