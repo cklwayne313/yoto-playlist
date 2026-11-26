@@ -42,7 +42,7 @@ Last checked: **25 Nov 2026**.
 | 10 | `cantonese-singles` | 18 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | 精選歌 — the loose ones: 早晨歌, 拜拜歌, 排隊歌, the postman, the festivals. Completes his 100-song catalogue alongside the five albums. |
 | 11 | `cantonese-transport-songs` | 16 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | 交通工具 — every vehicle named and sounded: bus, taxi, tram, ferry, MTR, fire engine, ambulance, police car. Highest-interest vocabulary he has. |
 | 12 | `cantonese-community-songs` | 7 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | 社區英雄 — firefighter, doctor, postman, farmer, the pandemic helpers. Names the job and thanks them; the concrete nouns he notices in the street. |
-| 13 | `cantonese-dinosaur-songs` | 4 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | 恐龍歌 — four dinosaurs, one adjective each: big, three-horned, long-necked, plated. Short card, and dinosaurs are the interest that makes him repeat names. |
+| 13 | `cantonese-animal-songs` | 9 | ★★★★☆ | ★★★★☆ | ★★★★☆ | GOOD | 動物朋友 — four dinosaurs plus panda, lion, forest and sea. Dinosaurs do the describing (big, three-horned, long-necked), the animals do the naming and the noises. |
 | 14 | `cantonese-concept-songs` | 7 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | 認知歌 — fruit, shapes, face, food, swimming, one category per song. Single words with a picture behind each one. |
 | 15 | `cantonese-movement-songs` | 9 | ★★★★☆ | ★★★★★ | ★★★★☆ | GOOD | 動作歌 — clap, jump, turn, left hand, right hand. He can do it before he can say it, which is the order imitation comes in. |
 | 16 | `cantonese-rhymes-calm` | 14 | ★★★★☆ | ★★★★☆ | ★★☆☆☆ | GOOD | 慢慢歌 — the same channel's slower, wordier songs. For winding down and hearing tone, not for joining in yet. |

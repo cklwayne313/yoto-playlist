@@ -132,7 +132,7 @@ CUSTOM_COVERS = {
     "cantonese-singles",
     "cantonese-transport-songs",
     "cantonese-community-songs",
-    "cantonese-dinosaur-songs",
+    "cantonese-animal-songs",
     "cantonese-concept-songs",
     "cantonese-movement-songs",
     "cantonese-happy-songs",
@@ -179,7 +179,7 @@ SERIES = {
 
     "cantonese-transport-songs": ("嘉芙姐姐", "kafoo"),
     "cantonese-community-songs": ("嘉芙姐姐", "kafoo"),
-    "cantonese-dinosaur-songs": ("嘉芙姐姐", "kafoo"),
+    "cantonese-animal-songs": ("嘉芙姐姐", "kafoo"),
     "cantonese-concept-songs": ("嘉芙姐姐", "kafoo"),
     "cantonese-movement-songs": ("嘉芙姐姐", "kafoo"),
 
@@ -271,6 +271,13 @@ def main():
     os.makedirs(DOCS, exist_ok=True)
     os.makedirs(os.path.join(DOCS, "pages"), exist_ok=True)
     os.makedirs(os.path.join(DOCS, "covers"), exist_ok=True)
+
+    # clear stale output so a renamed or removed playlist cannot linger
+    for sub, ext in (("pages", ".html"), ("covers", ".jpg")):
+        d = os.path.join(DOCS, sub)
+        for name in os.listdir(d):
+            if name.endswith(ext):
+                os.remove(os.path.join(d, name))
 
     with open(os.path.join(DOCS, "style.css"), "w", encoding="utf-8") as fh:
         fh.write(STYLE)
